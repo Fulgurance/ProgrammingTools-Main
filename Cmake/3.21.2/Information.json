@@ -1,0 +1,20 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Cmake",
+  "version": "3.21.2",
+  "architectures": ["x86_64"],
+  "description": "Open-source cross-platform family of tools designed to build and test package software",
+  "website": "https://cmake.org/",
+  "downloadLinks": ["https://cmake.org/files/v3.21/cmake-3.21.2.tar.gz"],
+  "md5sums": ["2ecc4091021c44f400bfbb25dcc77e97"],
+  "patchesLinks": [],
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Libuv",
+      "version": "1.42.0",
+      "options": []
+    }
+  ],
+  "options": []
+}
