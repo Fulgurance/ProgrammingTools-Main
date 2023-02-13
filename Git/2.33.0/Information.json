@@ -10,5 +10,11 @@
   "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [],
-  "options": []
+  "options": [
+    {
+      "name": "Curl",
+      "description": "Enable curl support to use Git over http, https, ftp or ftps",
+      "active": true
+    }
+  ]
 }

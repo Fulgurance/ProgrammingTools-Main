@@ -10,5 +10,11 @@
   "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [],
-  "options": []
+  "options": [
+    {
+      "name": "LibatomicOps",
+      "description": "Enable LibatomicOps support",
+      "active": false
+    }
+  ]
 }
