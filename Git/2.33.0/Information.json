@@ -14,7 +14,14 @@
     {
       "name": "Curl",
       "description": "Enable curl support to use Git over http, https, ftp or ftps",
-      "active": true
+      "active": true,
+      "dependencies": [
+        {
+          "name": "Curl",
+          "version": "7.78.0",
+          "options": []
+        }
+      ]
     }
   ]
 }
