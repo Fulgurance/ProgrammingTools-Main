@@ -23,7 +23,7 @@
       "active": false,
       "dependencies": [],
       "downloadLinks": [],
-      "md5sums": [],
+      "md5sums": []
     },
     {
       "name": "Pass2",
@@ -37,7 +37,7 @@
         }
       ],
       "downloadLinks": [],
-      "md5sums": [],
+      "md5sums": []
     },
   ]
 }
