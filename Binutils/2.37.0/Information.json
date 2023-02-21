@@ -21,7 +21,9 @@
       "name": "Pass1",
       "description": "Enable the phase 1 of the cross toolchain building",
       "active": false,
-      "dependencies": []
+      "dependencies": [],
+      "downloadLinks": [],
+      "md5sums": [],
     },
     {
       "name": "Pass2",
@@ -33,7 +35,9 @@
           "version": "5.2.5",
           "options": ["Pass1"]
         }
-      ]
+      ],
+      "downloadLinks": [],
+      "md5sums": [],
     },
   ]
 }
