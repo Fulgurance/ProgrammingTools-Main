@@ -4,7 +4,7 @@ class Target < ISM::Software
         super
 
         if option("Pass1")
-            configureSource([   "--prefix=#{Ism.settings.rootPath}usr",
+            configureSource([   "--prefix=/usr",
                                 "--without-guile",
                                 "--host=#{Ism.settings.target}",
                                 "--build=$(build-aux/config.guess)"],
@@ -24,11 +24,7 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        if option("Pass1")
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
-        else
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
-        end
+        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
     end
 
 end

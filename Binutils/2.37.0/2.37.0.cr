@@ -21,7 +21,7 @@ class Target < ISM::Software
                                 "--disable-werror"],
                                 buildDirectoryPath)
         elsif option("Pass2")
-            configureSource([   "--prefix=#{Ism.settings.rootPath}usr",
+            configureSource([   "--prefix=/usr",
                                 "--build=$(../config.guess)",
                                 "--host=#{Ism.settings.target}",
                                 "--disable-nls",
@@ -55,19 +55,19 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        if option("Pass1") || option("Pass2")
+        if option("Pass1")
             makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
+        elsif option("Pass2")
+            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+            moveFile("#{buildDirectoryPath}/libctf/.libs/libctf.so.0.0.0","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libctf.so.0.0.0")
         else
             makeSource([Ism.settings.makeOptions,"tooldir=/usr","DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
-        end
-
-        if option("Pass2")
-            moveFile("#{buildDirectoryPath}/libctf/.libs/libctf.so.0.0.0","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libctf.so.0.0.0")
         end
     end
 
     def install
         super
+
         if option("Pass2")
             setPermissions("#{Ism.settings.rootPath}usr/lib/libctf.so.0.0.0",755)
         end
@@ -75,6 +75,7 @@ class Target < ISM::Software
 
     def clean
         super
+
         if !option("Pass1") && !option("Pass2")
             deleteFile("#{Ism.settings.rootPath}/usr/lib/libbfd.a")
             deleteFile("#{Ism.settings.rootPath}/usr/lib/libctf.a")
