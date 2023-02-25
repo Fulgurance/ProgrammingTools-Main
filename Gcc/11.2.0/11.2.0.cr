@@ -103,26 +103,26 @@ class Target < ISM::Software
             makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         end
 
-        if option("Pass2")
-            makeLink("gcc","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
-        end
-
         if !option("Pass1") && !option("Pass2")
             makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
-            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib",:symbolicLink)
-            makeLink("../../libexec/gcc/#{Ism.settings.target}11.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins/",:symbolicLinkByOverwrite)
         end
     end
 
     def install
         super
 
+        if option("Pass2")
+            makeLink("gcc","#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
+        end
+
         if !option("Pass1") && !option("Pass2")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/11.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/11.2.0/include-fixed","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/11.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/11.2.0/include-fixed","root","root")
+            makeLink("/usr/bin/cpp","#{Ism.settings.rootPath}usr/lib",:symbolicLink)
+            makeLink("../../libexec/gcc/#{Ism.settings.target}11.2.0/liblto_plugin.so","#{Ism.settings.rootPath}usr/lib/bfd-plugins/",:symbolicLinkByOverwrite)
         end
     end
 
