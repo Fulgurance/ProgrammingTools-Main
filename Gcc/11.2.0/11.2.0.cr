@@ -16,10 +16,17 @@ class Target < ISM::Software
         end
 
         if architecture("x86_64")
-            fileReplaceText(mainWorkDirectoryPath(false) +
-                            "/gcc/config/i386/t-linux64",
-                            "m64=../lib64",
-                            "m64=../lib")
+            if option("Pass1") || option("Pass2")
+                fileReplaceText(mainWorkDirectoryPath +
+                                "/gcc/config/i386/t-linux64",
+                                "m64=../lib64",
+                                "m64=../lib")
+            else
+                fileReplaceText(mainWorkDirectoryPath(false) +
+                                "/gcc/config/i386/t-linux64",
+                                "m64=../lib64",
+                                "m64=../lib")
+            end
         end
 
         if option("Pass2")
@@ -35,43 +42,43 @@ class Target < ISM::Software
 
         if option("Pass1")
             configureSource([   "--target=#{Ism.settings.target}",
-                            "--prefix=#{Ism.settings.toolsPath}",
-                            "--with-glibc-version=2.11",
-                            "--with-sysroot=#{Ism.settings.rootPath}",
-                            "--with-newlib",
-                            "--without-headers",
-                            "--enable-initfini-array",
-                            "--disable-nls",
-                            "--disable-shared",
-                            "--disable-multilib",
-                            "--disable-decimal-float",
-                            "--disable-threads",
-                            "--disable-libatomic",
-                            "--disable-libgomp",
-                            "--disable-libquadmath",
-                            "--disable-libssp",
-                            "--disable-libvtv",
-                            "--disable-libstdcxx",
-                            "--enable-languages=c,c++"],
+                                "--prefix=#{Ism.settings.toolsPath}",
+                                "--with-glibc-version=2.11",
+                                "--with-sysroot=#{Ism.settings.rootPath}",
+                                "--with-newlib",
+                                "--without-headers",
+                                "--enable-initfini-array",
+                                "--disable-nls",
+                                "--disable-shared",
+                                "--disable-multilib",
+                                "--disable-decimal-float",
+                                "--disable-threads",
+                                "--disable-libatomic",
+                                "--disable-libgomp",
+                                "--disable-libquadmath",
+                                "--disable-libssp",
+                                "--disable-libvtv",
+                                "--disable-libstdcxx",
+                                "--enable-languages=c,c++"],
                             buildDirectoryPath)
         elsif option("Pass2")
             configureSource([   "--build=$(../config.guess)",
-                            "--host=#{Ism.settings.target}",
-                            "--prefix=/usr",
-                            "CC_FOR_TARGET=#{Ism.settings.target}-gcc",
-                            "--with-build-sysroot=#{Ism.settings.rootPath}",
-                            "--enable-initfini-array",
-                            "--disable-nls",
-                            "--disable-multilib",
-                            "--disable-decimal-float",
-                            "--disable-libatomic",
-                            "--disable-libgomp",
-                            "--disable-libquadmath",
-                            "--disable-libssp",
-                            "--disable-libvtv",
-                            "--disable-libstdcxx",
-                            "--enable-languages=c,c++"],
-                            buildDirectoryPath)
+                                "--host=#{Ism.settings.target}",
+                                "--prefix=/usr",
+                                "CC_FOR_TARGET=#{Ism.settings.target}-gcc",
+                                "--with-build-sysroot=#{Ism.settings.rootPath}",
+                                "--enable-initfini-array",
+                                "--disable-nls",
+                                "--disable-multilib",
+                                "--disable-decimal-float",
+                                "--disable-libatomic",
+                                "--disable-libgomp",
+                                "--disable-libquadmath",
+                                "--disable-libssp",
+                                "--disable-libvtv",
+                                "--disable-libstdcxx",
+                                "--enable-languages=c,c++"],
+                                buildDirectoryPath)
         else
             configureSource([   "--prefix=/usr",
                                 "LD=ld",
