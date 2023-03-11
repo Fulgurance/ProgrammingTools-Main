@@ -43,6 +43,7 @@ class Target < ISM::Software
 
     def build
         super
+
         makeSource([Ism.settings.makeOptions],buildDirectoryPath)
     end
 
