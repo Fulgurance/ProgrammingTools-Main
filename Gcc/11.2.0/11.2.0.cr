@@ -60,7 +60,7 @@ class Target < ISM::Software
                                 "--disable-libvtv",
                                 "--disable-libstdcxx",
                                 "--enable-languages=c,c++"],
-                            buildDirectoryPath)
+                                buildDirectoryPath)
         elsif option("Pass2")
             configureSource([   "--build=$(../config.guess)",
                                 "--host=#{Ism.settings.target}",
@@ -92,6 +92,7 @@ class Target < ISM::Software
     
     def build
         super
+
         makeSource([Ism.settings.makeOptions],buildDirectoryPath)
     end
     

@@ -6,8 +6,8 @@ class Target < ISM::Software
 
         if option("Pass1")
             makeLink(   "ld-linux.so.2",
-                    "#{Ism.settings.rootPath}/lib/ld-lsb.so.3",
-                    :symbolicLinkByOverwrite)
+                        "#{Ism.settings.rootPath}/lib/ld-lsb.so.3",
+                        :symbolicLinkByOverwrite)
             makeLink(   "../lib/ld-linux-x86-64.so.2",
                         "#{Ism.settings.rootPath}/lib64",
                         :symbolicLinkByOverwrite)
