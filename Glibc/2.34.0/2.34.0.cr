@@ -62,7 +62,7 @@ class Target < ISM::Software
         makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
         if option("Pass1")
-            fileReplaceText("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/ldd",
+            fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
                 "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
                 "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
             runScript("mkheaders",[""],"#{Ism.settings.toolsPath}/libexec/gcc/#{Ism.settings.target}/11.2.0/install-tools")
