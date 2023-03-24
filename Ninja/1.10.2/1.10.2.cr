@@ -2,11 +2,13 @@ class Target < ISM::Software
     
     def build
         super
-        runPythonScript(["configure.py", "--bootstrap"],buildDirectoryPath)
+
+        runPythonCommand(["configure.py", "--bootstrap"],buildDirectoryPath)
     end
     
     def prepareInstallation
         super
+
         makeDirectory("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/bin/")
         copyFile("#{buildDirectoryPath(false)}/ninja","#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/bin/")
         makeDirectory("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/share/bash-completion/completions/ninja")
