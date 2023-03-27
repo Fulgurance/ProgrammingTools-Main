@@ -62,7 +62,7 @@ class Target < ISM::Software
                                 "--enable-languages=c,c++"],
                                 buildDirectoryPath)
         elsif option("Pass2")
-            configureSource([   "--build=$(../config.guess)",
+            configureSource([   "#{Ism.settings.target}",
                                 "--host=#{Ism.settings.target}",
                                 "--prefix=/usr",
                                 "CC_FOR_TARGET=#{Ism.settings.target}-gcc",
