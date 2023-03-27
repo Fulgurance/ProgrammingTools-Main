@@ -41,7 +41,7 @@ class Target < ISM::Software
         super
 
         if option("Pass1")
-            configureSource([   "--target=#{Ism.settings.target}",
+            configureSource([   "--target=#{Ism.settings.chrootTarget}",
                                 "--prefix=#{Ism.settings.toolsPath}",
                                 "--with-glibc-version=2.11",
                                 "--with-sysroot=#{Ism.settings.rootPath}",
@@ -62,10 +62,10 @@ class Target < ISM::Software
                                 "--enable-languages=c,c++"],
                                 buildDirectoryPath)
         elsif option("Pass2")
-            configureSource([   "--build=#{Ism.settings.chrootTarget}",
-                                "--host=#{Ism.settings.target}",
+            configureSource([   "--build=#{Ism.settings.target}",
+                                "--host=#{Ism.settings.chrootTarget}",
                                 "--prefix=/usr",
-                                "CC_FOR_TARGET=#{Ism.settings.target}-gcc",
+                                "CC_FOR_TARGET=#{Ism.settings.chrootTarget}-gcc",
                                 "--with-build-sysroot=#{Ism.settings.rootPath}",
                                 "--enable-initfini-array",
                                 "--disable-nls",

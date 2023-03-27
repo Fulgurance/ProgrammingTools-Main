@@ -24,8 +24,8 @@ class Target < ISM::Software
 
         if option("Pass1")
             configureSource([   "--prefix=/usr",
-                                "--host=#{Ism.settings.target}",
-                                "--build=#{Ism.settings.chrootTarget}",
+                                "--host=#{Ism.settings.chrootTarget}",
+                                "--build=#{Ism.settings.target}",
                                 "--enable-kernel=3.2",
                                 "--with-headers=#{Ism.settings.rootPath}/usr/include",
                                 "libc_cv_slibdir=/usr/lib"],
