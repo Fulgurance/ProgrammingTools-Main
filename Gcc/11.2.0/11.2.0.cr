@@ -93,14 +93,14 @@ class Target < ISM::Software
     def build
         super
 
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
 
         if option("Pass1")
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
+            makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
             fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
                         getFileContent(mainWorkDirectoryPath + "gcc/limitx.h"))
             fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
@@ -108,7 +108,7 @@ class Target < ISM::Software
             fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
                             getFileContent(mainWorkDirectoryPath + "gcc/limity.h"))
         else
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+            makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         end
 
         if !option("Pass1") && !option("Pass2")
