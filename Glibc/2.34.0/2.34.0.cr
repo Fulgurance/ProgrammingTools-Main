@@ -25,7 +25,7 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource([   "--prefix=/usr",
                                 "--host=#{Ism.settings.chrootTarget}",
-                                "--build=#{Ism.settings.target}",
+                                "--build=$(../scripts/config.guess)",
                                 "--enable-kernel=3.2",
                                 "--with-headers=#{Ism.settings.rootPath}/usr/include",
                                 "libc_cv_slibdir=/usr/lib"],
@@ -44,7 +44,7 @@ class Target < ISM::Software
     def build
         super
 
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
 
     def prepareInstallation
@@ -60,7 +60,7 @@ class Target < ISM::Software
             fileReplaceText("#{mainWorkDirectoryPath(false)}Makefile","$(PERL)","echo not running")
         end
 
-        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
         if option("Pass1")
             fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
