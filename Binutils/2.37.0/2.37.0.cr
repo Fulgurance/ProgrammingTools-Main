@@ -16,14 +16,14 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource([   "--prefix=#{Ism.settings.toolsPath}",
                                 "--with-sysroot=#{Ism.settings.rootPath}",
-                                "--target=#{Ism.settings.target}",
+                                "--target=#{Ism.settings.chrootTarget}",
                                 "--disable-nls",
                                 "--disable-werror"],
                                 buildDirectoryPath)
         elsif option("Pass2")
             configureSource([   "--prefix=/usr",
                                 "--build=#{Ism.settings.target}",
-                                "--host=#{Ism.settings.target}",
+                                "--host=#{Ism.settings.chrootTarget}",
                                 "--disable-nls",
                                 "--enable-shared",
                                 "--disable-werror",
