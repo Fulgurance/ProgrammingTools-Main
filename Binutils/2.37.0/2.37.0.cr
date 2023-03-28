@@ -46,9 +46,9 @@ class Target < ISM::Software
         super
 
         if option("Pass1") || option("Pass2")
-            makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+            makeSource(path: buildDirectoryPath)
         else
-            makeSource([Ism.settings.makeOptions,"tooldir=/usr"],buildDirectoryPath)
+            makeSource(["tooldir=/usr"],buildDirectoryPath)
         end
     end
 
@@ -56,12 +56,12 @@ class Target < ISM::Software
         super
 
         if option("Pass1")
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
+            makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
         elsif option("Pass2")
-            makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+            makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
             moveFile("#{buildDirectoryPath}/libctf/.libs/libctf.so.0.0.0","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/libctf.so.0.0.0")
         else
-            makeSource([Ism.settings.makeOptions,"tooldir=/usr","DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+            makeSource(["tooldir=/usr","DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         end
     end
 

@@ -30,9 +30,9 @@ class Target < ISM::Software
         end
 
         if option("Pass2")
-            makeDirectory("#{buildDirectoryPath}/#{Ism.settings.target}/libgcc")
+            makeDirectory("#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc")
             makeLink(   "../../../libgcc/gthr-posix.h",
-                        "#{buildDirectoryPath}/#{Ism.settings.target}/libgcc/gthr-default.h",
+                        "#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc/gthr-default.h",
                         :symbolicLink)
         end
     end
@@ -101,11 +101,11 @@ class Target < ISM::Software
 
         if option("Pass1")
             makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
+            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/install-tools/include/limits.h",
                         getFileContent(mainWorkDirectoryPath + "gcc/limitx.h"))
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
+            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/install-tools/include/limits.h",
                             getFileContent(mainWorkDirectoryPath + "gcc/glimits.h"))
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.target}/#{@information.version}/install-tools/include/limits.h",
+            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/install-tools/include/limits.h",
                             getFileContent(mainWorkDirectoryPath + "gcc/limity.h"))
         else
             makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
