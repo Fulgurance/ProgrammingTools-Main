@@ -1,18 +1,14 @@
 class Target < ISM::Software
 
-    def prepare
-        super
-
-        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf213.texi")
-        deleteFile("#{buildDirectoryPath(false)}autoconf.info")
-    end
-
     def configure
         super
 
         configureSource([   "--prefix=/usr",
                             "--program-suffix=2.13"],
                             buildDirectoryPath)
+
+        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf213.texi")
+        deleteFile("#{buildDirectoryPath(false)}autoconf.info")
     end
 
     def build
