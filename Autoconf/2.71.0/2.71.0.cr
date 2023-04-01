@@ -6,9 +6,6 @@ class Target < ISM::Software
         configureSource([   "--prefix=/usr",
                             "--program-suffix=2.71"],
                             buildDirectoryPath)
-
-        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf271.texi")
-        deleteFile("#{buildDirectoryPath(false)}autoconf.info")
     end
 
     def build

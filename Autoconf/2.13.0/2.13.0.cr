@@ -1,5 +1,12 @@
 class Target < ISM::Software
 
+    def prepare
+        super
+
+        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf271.texi")
+        deleteFile("#{buildDirectoryPath(false)}autoconf.info")
+    end
+
     def configure
         super
 
