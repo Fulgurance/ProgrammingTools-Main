@@ -3,7 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
-        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf271.texi")
+        moveFile("#{buildDirectoryPath(false)}autoconf.texi","#{buildDirectoryPath(false)}autoconf213.texi")
         deleteFile("#{buildDirectoryPath(false)}autoconf.info")
     end
 
@@ -33,6 +33,7 @@ class Target < ISM::Software
     end
 
     def install
+
         runInstallInfoCommand(["--info-dir=/usr/share/info","autoconf213.info"])
     end
 
