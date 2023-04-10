@@ -11,6 +11,11 @@
   "installedFiles": [],
   "dependencies": [
     {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    },
+    {
       "name": "Expect",
       "version": "5.45.4",
       "options": []

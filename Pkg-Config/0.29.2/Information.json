@@ -11,8 +11,13 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "Gcc",
-      "version": "11.2.0",
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    },
+    {
+      "name": "Popt",
+      "version": "1.18.0",
       "options": []
     }
   ],

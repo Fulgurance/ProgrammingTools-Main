@@ -11,8 +11,8 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "Python",
-      "version": "3.9.6",
+      "name": "SystemBase",
+      "version": "0.2.0",
       "options": []
     }
   ],

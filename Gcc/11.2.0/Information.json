@@ -11,8 +11,28 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "Shadow",
-      "version": "4.9.0",
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    },
+    {
+      "name": "Gmp",
+      "version": "6.2.1",
+      "options": []
+    },
+    {
+      "name": "Mpc",
+      "version": "1.2.1",
+      "options": []
+    },
+    {
+      "name": "Mpfr",
+      "version": "4.1.0",
+      "options": []
+    },
+    {
+      "name": "Zstd",
+      "version": "1.5.0",
       "options": []
     }
   ],

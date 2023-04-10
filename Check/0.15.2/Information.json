@@ -11,8 +11,8 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "Coreutils",
-      "version": "8.32.0",
+      "name": "SystemBase",
+      "version": "0.2.0",
       "options": []
     }
   ],

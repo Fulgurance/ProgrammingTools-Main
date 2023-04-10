@@ -11,8 +11,8 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "Gettext",
-      "version": "0.21.0",
+      "name": "SystemBase",
+      "version": "0.2.0",
       "options": []
     }
   ],
