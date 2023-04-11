@@ -9,7 +9,13 @@
   "md5sums": ["787177b1b15aa19ffa0d61d8f508b69d"],
   "patchesLinks": [],
   "installedFiles": [],
-  "dependencies": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    }
+  ],
   "options": [
     {
       "name": "LibatomicOps",

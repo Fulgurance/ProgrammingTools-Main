@@ -9,7 +9,13 @@
   "md5sums": ["0990ff97af1511be0d9f0d3223dd4359"],
   "patchesLinks": [],
   "installedFiles": [],
-  "dependencies": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": []
+    }
+  ],
   "options": [
     {
       "name": "Curl",
