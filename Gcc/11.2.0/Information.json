@@ -11,11 +11,6 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "SystemBase",
-      "version": "0.2.0",
-      "options": []
-    },
-    {
       "name": "Gmp",
       "version": "6.2.1",
       "options": []

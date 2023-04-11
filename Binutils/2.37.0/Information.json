@@ -11,11 +11,6 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "name": "SystemBase",
-      "version": "0.2.0",
-      "options": []
-    },
-    {
       "name": "Flex",
       "version": "2.6.4",
       "options": []
