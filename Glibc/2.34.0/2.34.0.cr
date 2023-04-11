@@ -67,9 +67,8 @@ class Target < ISM::Software
                 "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
                 "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
 
-            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr")
-
-            runScript("mkheaders",["prefix=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr"],"#{Ism.settings.toolsPath}/libexec/gcc/#{Ism.settings.target}/11.2.0/install-tools")
+            runScript(  "mkheaders",
+                        path: "#{Ism.settings.toolsPath}/libexec/gcc/#{Ism.settings.target}/11.2.0/install-tools")
         else
             copyFile("#{mainWorkDirectoryPath(false)}/nscd/nscd.conf","#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/etc/nscd.conf")
 
