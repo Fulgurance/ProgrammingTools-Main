@@ -92,8 +92,6 @@ class Target < ISM::Software
             fileWriteData("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}etc/nsswitch.conf",nsswitchData)
 
             ldsoData = <<-CODE
-            /usr/local/lib
-            /opt/lib
             include /etc/ld.so.conf.d/*.conf
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}etc/ld.so.conf",ldsoData)
