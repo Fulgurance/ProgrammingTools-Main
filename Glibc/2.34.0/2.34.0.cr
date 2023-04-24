@@ -70,6 +70,10 @@ class Target < ISM::Software
             runScript(  "mkheaders",
                         path: "#{Ism.settings.toolsPath}/libexec/gcc/#{Ism.settings.target}/11.2.0/install-tools")
         else
+            fileReplaceText("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/bin/ldd",
+                "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
+                "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
+
             copyFile("#{mainWorkDirectoryPath(false)}/nscd/nscd.conf","#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/etc/nscd.conf")
 
             nsswitchData = <<-CODE
