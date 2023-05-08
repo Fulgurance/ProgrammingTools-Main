@@ -1,0 +1,20 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Cbindgen",
+  "version": "0.20.0",
+  "architectures": ["x86_64"],
+  "description": "A project for generating C bindings from Rust code",
+  "website": "https://github.com/eqrion/cbindgen",
+  "downloadLinks": ["https://github.com/eqrion/cbindgen/archive/v0.20.0/cbindgen-0.20.0.tar.gz"],
+  "md5sums": ["19e6e9bc319f689ef433eb59090e3f3c"],
+  "patchesLinks": [],
+  "installedFiles": [],
+  "dependencies": [
+    {
+        "name": "Rustc",
+        "version": "1.52.0",
+        "options": []
+    }
+  ],
+  "options": []
+}
