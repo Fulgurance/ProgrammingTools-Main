@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "GNU Diffutils programs to finding differences between files",
   "website": "https://nodejs.org",
-  "downloadLinks": ["https://nodejs.org/dist/v14.17.5/node-v14.17.5.tar.xz"],
-  "md5sums": ["8ec7b05141efe9de286a78506e116735"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
@@ -28,8 +25,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Icu",
@@ -42,8 +37,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Libuv",
@@ -56,8 +49,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     },
     {
       "name": "Nghttp2",
@@ -70,8 +61,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     }
   ]
 }

@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "Conservative garbage collector can be used as a garbage collecting replacement for C malloc or C++ new",
   "website": "https://www.hboehm.info/gc/",
-  "downloadLinks": ["https://github.com/ivmai/bdwgc/releases/download/v8.2.2/gc-8.2.2.tar.gz"],
-  "md5sums": ["787177b1b15aa19ffa0d61d8f508b69d"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
@@ -28,8 +25,6 @@
           "options": []
         }
       ],
-      "downloadLinks": [],
-      "md5sums": []
     }
   ]
 }

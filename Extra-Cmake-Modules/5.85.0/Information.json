@@ -5,9 +5,6 @@
   "architectures": ["x86_64"],
   "description": "Extra modules and scripts for CMake",
   "website": "https://invent.kde.org/frameworks/extra-cmake-modules",
-  "downloadLinks": ["https://download.kde.org/stable/frameworks/5.85/extra-cmake-modules-5.85.0.tar.xz"],
-  "md5sums": ["e4d8d5d70334eb9f40feb14c0e5fa1c3"],
-  "patchesLinks": [],
   "installedFiles": [],
   "dependencies": [
     {
