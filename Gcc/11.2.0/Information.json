@@ -44,11 +44,7 @@
           "version": "2.37.0",
           "options": ["Pass1"]
         }
-      ],
-                        "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz",
-                        "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"],
-                  "0b82665c4a92fd2ade7440c13fcaa42b",
-                  "9f16c976c25bb0f76b50be749cd7a3a8"]
+      ]
     },
     {
       "name": "Pass2",
@@ -60,11 +56,7 @@
           "version": "2.37.0",
           "options": ["Pass2"]
         }
-      ],
-                        "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz",
-                        "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"],
-                  "0b82665c4a92fd2ade7440c13fcaa42b",
-                  "9f16c976c25bb0f76b50be749cd7a3a8"]
+      ]
     }
   ]
 }

@@ -24,7 +24,7 @@
           "version": "1.17.2",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Icu",
@@ -36,7 +36,7 @@
           "version": "69.1.0",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Libuv",
@@ -48,7 +48,7 @@
           "version": "1.42.0",
           "options": []
         }
-      ],
+      ]
     },
     {
       "name": "Nghttp2",
@@ -60,7 +60,7 @@
           "version": "1.44.0",
           "options": []
         }
-      ],
+      ]
     }
   ]
 }
