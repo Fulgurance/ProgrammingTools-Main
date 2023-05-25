@@ -5,9 +5,9 @@ class Target < ISM::Software
         super
 
         if option("Pass1") || option("Pass2")
-            moveFile("#{workDirectoryPath}/mpfr-4.1.0","#{mainWorkDirectoryPath}/mpfr")
-            moveFile("#{workDirectoryPath}/gmp-6.2.1","#{mainWorkDirectoryPath}/gmp")
-            moveFile("#{workDirectoryPath}/mpc-1.2.1","#{mainWorkDirectoryPath}/mpc")
+            moveFile("#{workDirectoryPath}/Mpfr-4.1.0","#{mainWorkDirectoryPath}/mpfr")
+            moveFile("#{workDirectoryPath}/Gmp-6.2.1","#{mainWorkDirectoryPath}/gmp")
+            moveFile("#{workDirectoryPath}/Mpc-1.2.1","#{mainWorkDirectoryPath}/mpc")
         end
 
         if !option("Pass1") && !option("Pass2")
