@@ -1,7 +1,7 @@
 {
   "port": "ProgrammingTools-Main",
   "name": "Nasm",
-  "version": "1.3.0",
+  "version": "2.15.5",
   "architectures": ["x86_64"],
   "description": "Netwide Assembler for the x86 CPU architecture portable to nearly every modern platform",
   "website": "https://nasm.us/",
