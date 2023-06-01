@@ -10,10 +10,10 @@ class Target < ISM::Software
         super
 
         configureSource([   "--prefix=/usr",
-                            "--shared-cares",
-                            "--shared-libuv",
+                            "#{option("C-Ares") ? "--shared-cares" : ""}",
+                            "#{option("Libuv") ? "--shared-libuv" : ""}",
                             "--shared-openssl",
-                            "--shared-nghttp2",
+                            "#{option("Nghttp2") ? "--shared-nghttp2" : ""}",
                             "--shared-zlib",
                             "--with-intl=system-icu"],
                             buildDirectoryPath)
