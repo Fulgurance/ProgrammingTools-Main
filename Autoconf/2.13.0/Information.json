@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Autoconf",
   "version": "2.13.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Extensible package of M4 macros that produce shell scripts to automatically configure software source code packages",
   "website": "https://www.gnu.org/software/autoconf/",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     }
   ],
   "kernelDependencies": [],

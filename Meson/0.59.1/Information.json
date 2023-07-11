@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Meson",
   "version": "0.59.1",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Open source build system meant to be both extremely fast, and, even more importantly, as user friendly as possible",
   "website": "https://mesonbuild.com",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     },
     {
       "name": "Ninja",

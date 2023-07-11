@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Gcc",
   "version": "11.2.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "The GNU Compiler Collection",
   "website": "https://gcc.gnu.org/",
   "installedFiles": [],
@@ -43,9 +45,12 @@
         {
           "name": "Binutils",
           "version": "2.37.0",
-          "options": ["Pass1"]
+          "options": [
+            "Pass1"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Pass2",
@@ -55,9 +60,12 @@
         {
           "name": "Binutils",
           "version": "2.37.0",
-          "options": ["Pass2"]
+          "options": [
+            "Pass2"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

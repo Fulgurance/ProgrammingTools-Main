@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Bison",
   "version": "3.7.6",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Parser generator that converts an annotated context-free grammar into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser tables",
   "website": "https://www.gnu.org/software/bison/",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     }
   ],
   "kernelDependencies": [],
@@ -23,9 +27,12 @@
         {
           "name": "Gettext",
           "version": "0.21.0",
-          "options": ["Pass1"]
+          "options": [
+            "Pass1"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

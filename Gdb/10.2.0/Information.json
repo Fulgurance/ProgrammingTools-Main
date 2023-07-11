@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Gdb",
   "version": "10.2.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "The GNU Project debugger",
   "website": "https://sourceware.org/gdb",
   "installedFiles": [],
@@ -25,7 +27,8 @@
           "version": "1.16.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

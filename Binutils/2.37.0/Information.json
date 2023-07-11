@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Binutils",
   "version": "2.37.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "The GNU collection of binary tools",
   "website": "https://www.gnu.org/software/binutils/",
   "installedFiles": [],
@@ -28,9 +30,12 @@
         {
           "name": "SystemBase",
           "version": "0.2.0",
-          "options": ["Pass1"]
+          "options": [
+            "Pass1"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     },
     {
       "name": "Pass2",
@@ -40,9 +45,12 @@
         {
           "name": "Xz",
           "version": "5.2.5",
-          "options": ["Pass1"]
+          "options": [
+            "Pass1"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

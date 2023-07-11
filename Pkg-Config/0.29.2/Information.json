@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Pkg-Config",
   "version": "0.29.2",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Helper tool used when compiling applications and libraries",
   "website": "https://www.freedesktop.org/wiki/Software/pkg-config",
   "installedFiles": [],
@@ -10,7 +12,9 @@
     {
       "name": "SystemBase",
       "version": "0.2.0",
-      "options": ["Pass3"]
+      "options": [
+        "Pass3"
+      ]
     },
     {
       "name": "Popt",

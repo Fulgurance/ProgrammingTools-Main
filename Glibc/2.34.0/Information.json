@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Glibc",
   "version": "2.34.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "The GNU C Library project",
   "website": "https://www.gnu.org/software/libc/",
   "installedFiles": [],
@@ -28,9 +30,12 @@
         {
           "name": "Linux-API-Headers",
           "version": "5.13.12",
-          "options": ["Pass1"]
+          "options": [
+            "Pass1"
+          ]
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }

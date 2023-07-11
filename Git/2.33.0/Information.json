@@ -2,7 +2,9 @@
   "port": "ProgrammingTools-Main",
   "name": "Git",
   "version": "2.33.0",
-  "architectures": ["x86_64"],
+  "architectures": [
+    "x86_64"
+  ],
   "description": "Free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency",
   "website": "https://git-scm.com/",
   "installedFiles": [],
@@ -25,7 +27,8 @@
           "version": "7.78.0",
           "options": []
         }
-      ]
+      ],
+      "kernelDependencies": []
     }
   ]
 }
