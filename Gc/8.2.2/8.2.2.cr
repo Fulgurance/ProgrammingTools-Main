@@ -11,12 +11,12 @@ class Target < ISM::Software
     
     def build
         super
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
-        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/man/man3")
         moveFile("#{buildDirectoryPath(false)}doc/gc.man","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/man/man3/gc_malloc.3")
     end

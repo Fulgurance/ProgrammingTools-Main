@@ -10,12 +10,12 @@ class Target < ISM::Software
 
     def build
         super
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
-        makeSource([Ism.settings.makeOptions,"perllibdir=/usr/lib/perl5/5.34/site_perl","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["perllibdir=/usr/lib/perl5/5.34/site_perl","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
     end
 
 end

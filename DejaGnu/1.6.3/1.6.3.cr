@@ -26,7 +26,7 @@ class Target < ISM::Software
                             "doc/dejagnu.txt",
                             "../doc/dejagnu.texi"],
                             buildDirectoryPath)
-        makeSource([Ism.settings.makeOptions,"DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/doc/dejagnu-1.6.3")
         moveFile("#{buildDirectoryPath(false)}/doc/dejagnu.html","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.html")
         moveFile("#{buildDirectoryPath(false)}/doc/dejagnu.txt","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.txt")

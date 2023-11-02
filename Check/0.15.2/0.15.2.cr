@@ -9,12 +9,12 @@ class Target < ISM::Software
     
     def build
         super
-        makeSource([Ism.settings.makeOptions],buildDirectoryPath)
+        makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
-        makeSource([Ism.settings.makeOptions,"docdir=/usr/share/doc/check-0.15.2","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource(["docdir=/usr/share/doc/check-0.15.2","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
     end
 
 end
