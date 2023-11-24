@@ -4,14 +4,14 @@ class Target < ISM::Software
         @buildDirectory = true
         super
 
-        if option("Pass1") || option("Pass2")
+        if option("Pass1") || option("Pass3")
             moveFile("#{workDirectoryPath}/Mpfr-4.2.0","#{mainWorkDirectoryPath}/mpfr")
             moveFile("#{workDirectoryPath}/Gmp-6.3.0","#{mainWorkDirectoryPath}/gmp")
             moveFile("#{workDirectoryPath}/Mpc-1.3.1","#{mainWorkDirectoryPath}/mpc")
         end
 
         if architecture("x86_64")
-            if option("Pass1") || option("Pass2")
+            if option("Pass1") || option("Pass3")
                 fileReplaceText(mainWorkDirectoryPath +
                                 "/gcc/config/i386/t-linux64",
                                 "m64=../lib64",
@@ -24,7 +24,7 @@ class Target < ISM::Software
             end
         end
 
-        if option("Pass2")
+        if option("Pass3")
             fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/libgcc/Makefile.in","@thread_header@","gthr-posix.h",52)
 
             fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/libstdc++-v3/include/Makefile.in","@thread_header@","gthr-posix.h",348)
@@ -56,6 +56,16 @@ class Target < ISM::Software
                                 "--enable-languages=c,c++"],
                                 buildDirectoryPath)
         elsif option("Pass2")
+            configureSource([   "--host=#{Ism.settings.chrootTarget}",
+                                "--build=$(../config.guess)",
+                                "--prefix=#{Ism.settings.rootPath}usr",
+                                "--disable-multilib",
+                                "--disable-nls",
+                                "--disable-libstdcxx-pch",
+                                "--with-gxx-include-dir=#{Ism.settings.toolsPath}#{Ism.settings.chrootTarget}/include/c++/13.2.0"],
+                                buildDirectoryPath,
+                                "libstdc++-v3")
+        elsif option("Pass3")
             configureSource([   "--build=$(../config.guess)",
                                 "--host=#{Ism.settings.chrootTarget}",
                                 "--target=#{Ism.settings.chrootTarget}",
@@ -106,11 +116,17 @@ class Target < ISM::Software
                             getFileContent(mainWorkDirectoryPath + "gcc/glimits.h"))
             fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/install-tools/include/limits.h",
                             getFileContent(mainWorkDirectoryPath + "gcc/limity.h"))
+        elsif option("Pass2")
+            makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
+
+            deleteFile("#{builtSoftwareDirectoryPath}/usr/lib/stdc++.la")
+            deleteFile("#{builtSoftwareDirectoryPath}/usr/lib/stdc++fs.la")
+            deleteFile("#{builtSoftwareDirectoryPath}/usr/lib/supc++.la")
         else
             makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
         end
 
-        if !option("Pass1") && !option("Pass2")
+        if !option("Pass1") && !option("Pass2") && !option("Pass3")
             makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
         end
@@ -119,11 +135,11 @@ class Target < ISM::Software
     def install
         super
 
-        if option("Pass2")
+        if option("Pass3")
             makeLink("gcc","#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
         end
 
-        if !option("Pass1") && !option("Pass2")
+        if !option("Pass1") && !option("Pass2") && !option("Pass3")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include-fixed","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include","root","root")
@@ -136,7 +152,7 @@ class Target < ISM::Software
     def clean
         super
 
-        if !option("Pass1") && !option("Pass2")
+        if !option("Pass1") && !option("Pass2") && !option("Pass3")
             deleteDirectoryRecursively("#{Ism.settings.rootPath}/usr/lib/gcc/#{Ism.settings.target}/13.2.0/include-fixed/bits/")
         end
     end

@@ -54,7 +54,22 @@
     },
     {
       "name": "Pass2",
-      "description": "Enable the phase 2 of the cross toolchain building",
+      "description": "Enable the phase 1 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Glibc",
+          "version": "2.38.0",
+          "options": [
+            "Pass1"
+          ]
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Pass3",
+      "description": "Enable the phase 3 of the cross toolchain building",
       "active": false,
       "dependencies": [
         {
