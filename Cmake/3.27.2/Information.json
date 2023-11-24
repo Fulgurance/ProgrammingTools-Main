@@ -1,0 +1,63 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Cmake",
+  "version": "3.27.2",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Open-source cross-platform family of tools designed to build and test package software",
+  "website": "https://cmake.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Libuv",
+      "version": "1.46.0",
+      "options": []
+    },
+    {
+      "name": "Curl",
+      "version": "8.2.1",
+      "options": []
+    },
+    {
+      "name": "Libarchive",
+      "version": "3.7.1",
+      "options": []
+    },
+    {
+      "name": "Nghttp2",
+      "version": "1.55.1",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Gcc",
+      "description": "Enable gcc support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Gcc",
+          "version": "13.2.0",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Qt",
+      "description": "Enable qt support",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Qt",
+          "version": "5.15.10",
+          "options": []
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

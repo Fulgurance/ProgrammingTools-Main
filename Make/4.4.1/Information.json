@@ -1,0 +1,37 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Make",
+  "version": "4.4.1",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "GNU Make tool to generate executables and other non-source files",
+  "website": "https://www.gnu.org/software/make/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Libpipeline",
+      "version": "1.5.7",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Pass1",
+      "description": "Enable the phase 1 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Gzip",
+          "version": "1.12.0",
+          "options": [
+            "Pass1"
+          ]
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}

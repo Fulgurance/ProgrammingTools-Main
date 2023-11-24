@@ -1,0 +1,23 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Pkgconf",
+  "version": "2.0.1",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "Program which helps to configure compiler and linker flags for development frameworks",
+  "website": "http://pkgconf.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "SystemBase",
+      "version": "0.2.0",
+      "options": [
+        "Pass3"
+      ]
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueOptions": []
+}

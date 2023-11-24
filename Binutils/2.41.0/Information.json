@@ -1,0 +1,57 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Binutils",
+  "version": "2.41.0",
+  "architectures": [
+    "x86_64"
+  ],
+  "description": "The GNU collection of binary tools",
+  "website": "https://www.gnu.org/software/binutils/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "name": "Flex",
+      "version": "2.6.4",
+      "options": []
+    },
+    {
+      "name": "Zlib",
+      "version": "1.2.13",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Pass1",
+      "description": "Enable the phase 1 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "SystemBase",
+          "version": "0.2.0",
+          "options": [
+            "Pass1"
+          ]
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Pass2",
+      "description": "Enable the phase 2 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "name": "Xz",
+          "version": "5.4.4",
+          "options": [
+            "Pass1"
+          ]
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueOptions": []
+}
