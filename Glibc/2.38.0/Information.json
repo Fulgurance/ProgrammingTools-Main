@@ -28,8 +28,8 @@
       "active": false,
       "dependencies": [
         {
-          "name": "Linux-API-Headers",
-          "version": ">=5.13.12",
+          "name": "Kernel",
+          "version": ">=0.0.0",
           "options": [
             "Pass1"
           ]
