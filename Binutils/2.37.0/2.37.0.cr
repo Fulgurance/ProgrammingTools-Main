@@ -18,7 +18,8 @@ class Target < ISM::Software
                                 "--with-sysroot=#{Ism.settings.rootPath}",
                                 "--target=#{Ism.settings.chrootTarget}",
                                 "--disable-nls",
-                                "--disable-werror"],
+                                "--disable-werror",
+                                "#{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}"],
                                 buildDirectoryPath)
         elsif option("Pass2")
             configureSource([   "--prefix=/usr",
@@ -27,7 +28,8 @@ class Target < ISM::Software
                                 "--disable-nls",
                                 "--enable-shared",
                                 "--disable-werror",
-                                "--enable-64-bit-bfd"],
+                                "--enable-64-bit-bfd",
+                                "#{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}"],
                                 buildDirectoryPath)
         else
             configureSource([   "--prefix=/usr",
@@ -37,7 +39,8 @@ class Target < ISM::Software
                                 "--enable-shared",
                                 "--disable-werror",
                                 "--enable-64-bit-bfd",
-                                "--with-system-zlib"],
+                                "--with-system-zlib",
+                                "#{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}"],
                                 buildDirectoryPath)
         end
     end

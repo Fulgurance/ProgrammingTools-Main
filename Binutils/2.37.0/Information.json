@@ -23,6 +23,13 @@
   "kernelDependencies": [],
   "options": [
     {
+      "name": "Multilib",
+      "description": "Enable multilib support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
       "name": "Pass1",
       "description": "Enable the phase 1 of the cross toolchain building",
       "active": false,
