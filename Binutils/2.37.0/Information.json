@@ -37,9 +37,7 @@
         {
           "name": "SystemBase",
           "version": "0.2.0",
-          "options": [
-            "Pass1"
-          ]
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []
@@ -52,9 +50,7 @@
         {
           "name": "Xz",
           "version": "5.2.5",
-          "options": [
-            "Pass1"
-          ]
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []
