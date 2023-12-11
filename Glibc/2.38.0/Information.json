@@ -28,7 +28,7 @@
       "active": false,
       "dependencies": [
         {
-          "name": "Kernel",
+          "name": "Linux",
           "version": ">=0.0.0",
           "options": ["Pass1"]
         }
