@@ -34,7 +34,7 @@ class Target < ISM::Software
                                 buildDirectoryPath)
         else
             configureSource([   "--prefix=/usr",
-                                "--sysconfdir=/etc"
+                                "--sysconfdir=/etc",
                                 "--enable-gold",
                                 "--enable-ld=default",
                                 "--enable-plugins",
