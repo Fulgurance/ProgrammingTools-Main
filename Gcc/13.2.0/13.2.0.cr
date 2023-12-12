@@ -17,10 +17,12 @@ class Target < ISM::Software
                                 "m64=../lib64",
                                 "m64=../lib")
             else
-                fileReplaceText(mainWorkDirectoryPath(false) +
-                                "/gcc/config/i386/t-linux64",
-                                "m64=../lib64",
-                                "m64=../lib")
+                if !option("Pass2")
+                    fileReplaceText(mainWorkDirectoryPath(false) +
+                                    "/gcc/config/i386/t-linux64",
+                                    "m64=../lib64",
+                                    "m64=../lib")
+                end
             end
         end
 
