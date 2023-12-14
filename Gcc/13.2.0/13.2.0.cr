@@ -151,12 +151,4 @@ class Target < ISM::Software
         end
     end
 
-    def clean
-        super
-
-        if !option("Pass1") && !option("Pass2") && !option("Pass3")
-            deleteDirectoryRecursively("#{Ism.settings.rootPath}/usr/lib/gcc/#{Ism.settings.target}/13.2.0/include-fixed/bits/")
-        end
-    end
-
 end
