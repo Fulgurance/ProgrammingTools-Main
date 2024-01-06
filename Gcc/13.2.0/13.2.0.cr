@@ -16,12 +16,26 @@ class Target < ISM::Software
                                 "/gcc/config/i386/t-linux64",
                                 "m64=../lib64",
                                 "m64=../lib")
+
+                if option("32Bits")
+                    fileReplaceLineContaining(  mainWorkDirectoryPath +
+                                                "/gcc/config/i386/t-linux64",
+                                                "MULTILIB_OSDIRNAMES+= m32=",
+                                                "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
+                end
             else
                 if !option("Pass2")
                     fileReplaceText(mainWorkDirectoryPath(false) +
                                     "/gcc/config/i386/t-linux64",
                                     "m64=../lib64",
                                     "m64=../lib")
+
+                    if option("32Bits")
+                        fileReplaceLineContaining(  mainWorkDirectoryPath(false) +
+                                                    "/gcc/config/i386/t-linux64",
+                                                    "MULTILIB_OSDIRNAMES+= m32=",
+                                                    "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
+                    end
                 end
             end
         end
@@ -36,6 +50,18 @@ class Target < ISM::Software
     def configure
         super
 
+        if option("Multilib") && !option("Pass2")
+            multilibList = "m64"
+
+            if option("32Bits")
+                multilibList += ",m32"
+            end
+
+            if option("32Bits")
+                multilibList += ",mx32"
+            end
+        end
+
         if option("Pass1")
             configureSource([   "--target=#{Ism.settings.chrootTarget}",
                                 "--prefix=#{Ism.settings.toolsPath}",
@@ -47,7 +73,7 @@ class Target < ISM::Software
                                 "--enable-default-ssp",
                                 "--disable-nls",
                                 "--disable-shared",
-                                "--disable-multilib",
+                                "#{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"}",
                                 "--disable-threads",
                                 "--disable-libatomic",
                                 "--disable-libgomp",
@@ -61,7 +87,7 @@ class Target < ISM::Software
             configureSource([   "--host=#{Ism.settings.chrootTarget}",
                                 "--build=$(../config.guess)",
                                 "--prefix=#{Ism.settings.rootPath}usr",
-                                "--disable-multilib",
+                                "#{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                                 "--disable-nls",
                                 "--disable-libstdcxx-pch",
                                 "--with-gxx-include-dir=#{Ism.settings.toolsPath}#{Ism.settings.chrootTarget}/include/c++/13.2.0"],
@@ -77,7 +103,7 @@ class Target < ISM::Software
                                 "--enable-default-pie",
                                 "--enable-default-ssp",
                                 "--disable-nls",
-                                "--disable-multilib",
+                                "#{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"}",
                                 "--disable-libatomic",
                                 "--disable-libgomp",
                                 "--disable-libquadmath",
@@ -92,7 +118,7 @@ class Target < ISM::Software
                                 "--enable-languages=c,c++",
                                 "--enable-default-pie",
                                 "--enable-default-ssp",
-                                "--disable-multilib",
+                                "#{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"}",
                                 "--disable-bootstrap",
                                 "--disable-fixincludes",
                                 "--with-system-zlib"],
