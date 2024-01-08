@@ -38,6 +38,13 @@
   "kernelDependencies": [],
   "options": [
     {
+      "name": "Multilib",
+      "description": "Enable multilib support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
       "name": "32Bits",
       "description": "Enable 32 bits support",
       "active": false,
