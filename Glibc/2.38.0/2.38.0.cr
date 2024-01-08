@@ -124,7 +124,7 @@ class Target < ISM::Software
     def build
         super
 
-        makeSource(path: buildDirectoryPath(entry: "mainBuild"))
+        makeSource(path: buildDirectoryPath(entry: "MainBuild"))
 
         if option("32Bits")
             makeSource(path: buildDirectoryPath(entry: "32Bits"))
