@@ -1,7 +1,17 @@
 class Target < ISM::Software
 
     def prepare
+
         @buildDirectory = true
+
+        if option("32Bits")
+            @buildDirectoryNames["32Bits"] = "mainBuild-32"
+        end
+
+        if option("x32Bits")
+            @buildDirectoryNames["x32Bits"] = "mainBuild-x32"
+        end
+
         super
 
         if option("Pass1")
@@ -17,6 +27,68 @@ class Target < ISM::Software
         end
     end
 
+    def configure32Bits
+
+        if option("Pass1")
+            configureSource([   "--prefix=/usr",
+                                "--host=#{Ism.settings.chrootTarget}32",
+                                "--build=$(../scripts/config.guess)",
+                                "--enable-kernel=4.14",
+                                "--with-headers=#{Ism.settings.rootPath}/usr/include",
+                                "--enable-multi-arch",
+                                "-libdir=/usr/lib32",
+                                "--libexecdir=/usr/lib32",
+                                "libc_cv_slibdir=/usr/lib32"],
+                                path: buildDirectoryPath,
+                                environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -m32",
+                                                "CXX" => "#{Ism.settings.chrootTarget}-g++ -m32"})
+        else
+            configureSource([   "--prefix=/usr",
+                                "--host=i686-#{Ism.settings.targetName}-linux-gnu",
+                                "--build=$(../scripts/config.guess)",
+                                "--enable-kernel=4.14",
+                                "--with-headers=#{Ism.settings.rootPath}/usr/include",
+                                "--enable-multi-arch",
+                                "-libdir=/usr/lib32",
+                                "--libexecdir=/usr/lib32",
+                                "libc_cv_slibdir=/usr/lib32"],
+                                path: buildDirectoryPath,
+                                environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -m32",
+                                                "CXX" => "#{Ism.settings.chrootTarget}-g++ -m32"})
+        end
+    end
+
+    def configurex32Bits
+
+        if option("Pass1")
+            configureSource([   "--prefix=/usr",
+                                "--host=#{Ism.settings.chrootTarget}X32",
+                                "--build=$(../scripts/config.guess)",
+                                "--enable-kernel=4.14",
+                                "--with-headers=#{Ism.settings.rootPath}/usr/include",
+                                "--enable-multi-arch",
+                                "-libdir=/usr/libx32",
+                                "--libexecdir=/usr/libx32",
+                                "libc_cv_slibdir=/usr/libx32"],
+                                path: buildDirectoryPath,
+                                environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -mx32",
+                                                "CXX" => "#{Ism.settings.chrootTarget}-g++ -mx32"})
+        else
+            configureSource([   "--prefix=/usr",
+                                "--host=#{Ism.settings.chrootTarget}X32",
+                                "--build=$(../scripts/config.guess)",
+                                "--enable-kernel=4.14",
+                                "--with-headers=#{Ism.settings.rootPath}/usr/include",
+                                "--enable-multi-arch",
+                                "--libdir=/usr/libx32",
+                                "--libexecdir=/usr/libx32",
+                                "libc_cv_slibdir=/usr/libx32"],
+                                path: buildDirectoryPath,
+                                environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -mx32",
+                                                "CXX" => "#{Ism.settings.chrootTarget}-g++ -mx32"})
+        end
+    end
+
     def configure
         super
 
@@ -26,6 +98,7 @@ class Target < ISM::Software
                                 "--build=$(../scripts/config.guess)",
                                 "--enable-kernel=4.14",
                                 "--with-headers=#{Ism.settings.rootPath}/usr/include",
+                                "#{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}",
                                 "libc_cv_slibdir=/usr/lib"],
                                 buildDirectoryPath)
         else
@@ -34,15 +107,68 @@ class Target < ISM::Software
                                 "--enable-kernel=4.14",
                                 "--enable-stack-protector=strong",
                                 "--with-headers=/usr/include",
+                                "#{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}",
                                 "libc_cv_slibdir=/usr/lib"],
                                 buildDirectoryPath)
+        end
+
+        if option("32Bits")
+            configure32Bits
+        end
+
+        if option("x32Bits")
+            configurex32Bits
         end
     end
 
     def build
         super
 
-        makeSource(path: buildDirectoryPath)
+        makeSource(path: buildDirectoryPath(entry: "mainBuild"))
+
+        if option("32Bits")
+            makeSource(path: buildDirectoryPath(entry: "32Bits"))
+        end
+
+        if option("x32Bits")
+            makeSource(path: buildDirectoryPath(entry: "x32Bits"))
+        end
+    end
+
+    def prepare32Bits
+        makeDirectory("#{buildDirectoryPath(false, entry: "32Bits")}/32Bits")
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu")
+
+        makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "32Bits")}/32Bits",
+                    "install"],
+                    path: buildDirectoryPath(entry: "32Bits"))
+
+        copyDirectory(  "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/lib32",
+                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/lib32")
+
+        copyFile(   "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/include/gnu/lib-names-32.h",
+                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-32.h")
+
+        copyFile(   "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/include/gnu/stubs-32.h",
+                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/stubs-32.h")
+    end
+
+    def preparex32Bits
+        makeDirectory("#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits")
+        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu")
+
+        makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "x32Bits")}/x32Bits",
+                    "install"],
+                    path: buildDirectoryPath(entry: "x32Bits"))
+
+        copyDirectory(  "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/libx32",
+                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/libx32")
+
+        copyFile(   "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/include/gnu/lib-names-x32.h",
+                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-x32.h")
+
+        copyFile(   "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/include/gnu/stubs-x32.h",
+                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/stubs-x32.h")
     end
 
     def prepareInstallation
@@ -90,6 +216,30 @@ class Target < ISM::Software
             include /etc/ld.so.conf.d/*.conf
             CODE
             fileWriteData("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}etc/ld.so.conf",ldsoData)
+        end
+
+        if option("32Bits")
+            prepare32Bits
+        end
+
+        if option("x32Bits")
+            preparex32Bits
+        end
+    end
+
+    def install
+        super
+
+        if option("32Bits")
+            makeLink(   "../lib32/ld-linux.so.2",
+                        "#{Ism.settings.rootPath}/lib/ld-linux.so.2",
+                            :symbolicLinkByOverwrite)
+        end
+
+        if option("x32Bits")
+            makeLink(   "../libx32/ld-linux-x32.so.2",
+                        "#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
+                            :symbolicLinkByOverwrite)
         end
     end
 

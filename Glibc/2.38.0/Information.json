@@ -23,6 +23,20 @@
   "kernelDependencies": [],
   "options": [
     {
+      "name": "32Bits",
+      "description": "Enable 32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_IA32_EMULATION"]
+    },
+    {
+      "name": "x32Bits",
+      "description": "Enable x32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_X86_X32"]
+    },
+    {
       "name": "Pass1",
       "description": "Enable the phase 1 of the cross toolchain building",
       "active": false,
