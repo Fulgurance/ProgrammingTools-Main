@@ -39,7 +39,7 @@ class Target < ISM::Software
                                 "-libdir=/usr/lib32",
                                 "--libexecdir=/usr/lib32",
                                 "libc_cv_slibdir=/usr/lib32"],
-                                path: buildDirectoryPath,
+                                path: buildDirectoryPath(entry: "32Bits"),
                                 environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -m32",
                                                 "CXX" => "#{Ism.settings.chrootTarget}-g++ -m32"})
         else
@@ -52,7 +52,7 @@ class Target < ISM::Software
                                 "-libdir=/usr/lib32",
                                 "--libexecdir=/usr/lib32",
                                 "libc_cv_slibdir=/usr/lib32"],
-                                path: buildDirectoryPath,
+                                path: buildDirectoryPath(entry: "32Bits"),
                                 environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -m32",
                                                 "CXX" => "#{Ism.settings.chrootTarget}-g++ -m32"})
         end
@@ -70,7 +70,7 @@ class Target < ISM::Software
                                 "-libdir=/usr/libx32",
                                 "--libexecdir=/usr/libx32",
                                 "libc_cv_slibdir=/usr/libx32"],
-                                path: buildDirectoryPath,
+                                path: buildDirectoryPath(entry: "x32Bits"),
                                 environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -mx32",
                                                 "CXX" => "#{Ism.settings.chrootTarget}-g++ -mx32"})
         else
@@ -83,7 +83,7 @@ class Target < ISM::Software
                                 "--libdir=/usr/libx32",
                                 "--libexecdir=/usr/libx32",
                                 "libc_cv_slibdir=/usr/libx32"],
-                                path: buildDirectoryPath,
+                                path: buildDirectoryPath(entry: "x32Bits"),
                                 environment: {  "CC" => "#{Ism.settings.chrootTarget}-gcc -mx32",
                                                 "CXX" => "#{Ism.settings.chrootTarget}-g++ -mx32"})
         end
