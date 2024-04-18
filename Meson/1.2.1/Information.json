@@ -20,6 +20,11 @@
       "name": "Ninja",
       "version": "1.11.1",
       "options": []
+    },
+    {
+      "name": "Python",
+      "version": "3.11.4",
+      "options": []
     }
   ],
   "kernelDependencies": [],
