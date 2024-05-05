@@ -157,8 +157,8 @@ class Target < ISM::Software
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
             makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
-            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib",:symbolicLink)
-            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins/",:symbolicLinkByOverwrite)
+            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/cpp",:symbolicLink)
+            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",:symbolicLinkByOverwrite)
         end
 
         if option("Pass3")
