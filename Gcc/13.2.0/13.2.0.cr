@@ -157,23 +157,23 @@ class Target < ISM::Software
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
             makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
+            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib",:symbolicLink)
+            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins/",:symbolicLinkByOverwrite)
+        end
+
+        if option("Pass3")
+            makeLink("gcc","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
         end
     end
 
     def install
         super
 
-        if option("Pass3")
-            makeLink("gcc","#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
-        end
-
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include-fixed","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include-fixed","root","root")
-            makeLink("/usr/bin/cpp","#{Ism.settings.rootPath}usr/lib",:symbolicLink)
-            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{Ism.settings.rootPath}usr/lib/bfd-plugins/",:symbolicLinkByOverwrite)
         end
     end
 

@@ -220,25 +220,17 @@ class Target < ISM::Software
 
         if option("32Bits")
             prepare32Bits
-        end
 
-        if option("x32Bits")
-            preparex32Bits
-        end
-    end
-
-    def install
-        super
-
-        if option("32Bits")
             makeLink(   "../lib32/ld-linux.so.2",
-                        "#{Ism.settings.rootPath}/lib/ld-linux.so.2",
+                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/lib/ld-linux.so.2",
                             :symbolicLinkByOverwrite)
         end
 
         if option("x32Bits")
+            preparex32Bits
+
             makeLink(   "../libx32/ld-linux-x32.so.2",
-                        "#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
+                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
                             :symbolicLinkByOverwrite)
         end
     end
