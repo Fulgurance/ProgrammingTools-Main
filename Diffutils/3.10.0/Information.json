@@ -2,19 +2,16 @@
   "port": "ProgrammingTools-Main",
   "name": "Diffutils",
   "version": "3.10.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "GNU Diffutils programs to finding differences between files",
   "website": "https://www.gnu.org/software/diffutils/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
-      "options": [
-        "Pass3"
-      ]
+      "version": ">=0.2.0",
+      "options": ["Pass3"]
     }
   ],
   "kernelDependencies": [],
@@ -25,11 +22,10 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Utilities-Main",
           "name": "Coreutils",
-          "version": "9.3.0",
-          "options": [
-            "Pass1"
-          ]
+          "version": ">=9.3.0",
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []

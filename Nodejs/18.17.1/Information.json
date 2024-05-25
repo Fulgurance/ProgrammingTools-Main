@@ -2,16 +2,15 @@
   "port": "ProgrammingTools-Main",
   "name": "Nodejs",
   "version": "18.17.1",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "GNU Diffutils programs to finding differences between files",
   "website": "https://nodejs.org",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "Utilities-Main",
       "name": "Which",
-      "version": "2.21.0",
+      "version": ">=2.21.0",
       "options": []
     }
   ],
@@ -23,8 +22,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "NetworkingLibraries-Main",
           "name": "C-Ares",
-          "version": "1.19.1",
+          "version": ">=1.19.1",
           "options": []
         }
       ],
@@ -36,8 +36,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Icu",
-          "version": "73.2.0",
+          "version": ">=73.2.0",
           "options": []
         }
       ],
@@ -49,8 +50,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Libuv",
-          "version": "1.46.0",
+          "version": ">=1.46.0",
           "options": []
         }
       ],
@@ -62,8 +64,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "NetworkingLibraries-Main",
           "name": "Nghttp2",
-          "version": "1.55.1",
+          "version": ">=1.55.1",
           "options": []
         }
       ],

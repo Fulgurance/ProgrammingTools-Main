@@ -2,23 +2,21 @@
   "port": "ProgrammingTools-Main",
   "name": "Automake",
   "version": "1.16.5",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Tool for automatically generating Makefile.in files compliant with the GNU Coding Standards",
   "website": "https://www.gnu.org/software/automake/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
-      "options": [
-        "Pass3"
-      ]
+      "version": ">=0.2.0",
+      "options": ["Pass3"]
     },
     {
+      "port": "ProgrammingTools-Main",
       "name": "Autoconf",
-      "version": "2.71.0",
+      "version": ">=2.71.0",
       "options": []
     }
   ],

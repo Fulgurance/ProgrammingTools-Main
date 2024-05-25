@@ -2,19 +2,19 @@
   "port": "ProgrammingTools-Main",
   "name": "DejaGnu",
   "version": "1.6.3",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "DejaGnu framework for testing other programs",
   "website": "https://www.gnu.org/software/dejagnu/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
       "version": ">=0.2.0",
       "options": []
     },
     {
+      "port": "Utilities-Main",
       "name": "Expect",
       "version": ">=5.45.4",
       "options": []

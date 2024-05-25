@@ -2,16 +2,15 @@
   "port": "ProgrammingTools-Main",
   "name": "Git",
   "version": "2.41.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency",
   "website": "https://git-scm.com/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
+      "version": ">=0.2.0",
       "options": []
     }
   ],
@@ -23,8 +22,9 @@
       "active": true,
       "dependencies": [
         {
+          "port": "NetworkingLibraries-Main",
           "name": "Curl",
-          "version": "8.2.1",
+          "version": ">=8.2.1",
           "options": []
         }
       ],
@@ -36,8 +36,9 @@
       "active": true,
       "dependencies": [
         {
+          "port": "Security-Main",
           "name": "Gnupg",
-          "version": "2.4.3",
+          "version": ">=2.4.3",
           "options": []
         }
       ],
@@ -49,8 +50,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "NetworkingTools-Main",
           "name": "Openssh",
-          "version": "9.4.0+p1",
+          "version": ">=9.4.0+p1",
           "options": []
         }
       ],
@@ -62,8 +64,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Pcre2",
-          "version": "10.42.0",
+          "version": ">=10.42.0",
           "options": []
         }
       ],
@@ -75,8 +78,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "ProgrammingTools-Main",
           "name": "Subversion",
-          "version": "1.14.2",
+          "version": ">=1.14.2",
           "options": []
         }
       ],
@@ -88,8 +92,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "GraphicsLibraries-Main",
           "name": "Tk",
-          "version": "8.6.13",
+          "version": ">=8.6.13",
           "options": []
         }
       ],
@@ -101,8 +106,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Utilities-Main",
           "name": "Valgrind",
-          "version": "3.21.0",
+          "version": ">=3.21.0",
           "options": []
         }
       ],
@@ -114,8 +120,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "NetworkingLibraries-Main",
           "name": "Io-Socket-Openssl",
-          "version": "2.83.0",
+          "version": ">=2.83.0",
           "options": []
         }
       ],

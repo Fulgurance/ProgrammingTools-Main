@@ -2,21 +2,21 @@
   "port": "ProgrammingTools-Main",
   "name": "Binutils",
   "version": "2.41.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "The GNU collection of binary tools",
   "website": "https://www.gnu.org/software/binutils/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "Utilities-Main",
       "name": "Flex",
-      "version": "2.6.4",
+      "version": ">=2.6.4",
       "options": []
     },
     {
+      "port": "BaseLibraries-Main",
       "name": "Zlib",
-      "version": "1.2.13",
+      "version": ">=1.2.13",
       "options": []
     }
   ],
@@ -35,11 +35,10 @@
       "active": false,
       "dependencies": [
         {
+          "port": "SystemBase-Main",
           "name": "SystemBase",
           "version": "0.2.0",
-          "options": [
-            "Pass1"
-          ]
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []
@@ -50,11 +49,10 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Archivers-Main",
           "name": "Xz",
-          "version": "5.4.4",
-          "options": [
-            "Pass1"
-          ]
+          "version": ">=5.4.4",
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []

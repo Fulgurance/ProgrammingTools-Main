@@ -2,19 +2,16 @@
   "port": "ProgrammingTools-Main",
   "name": "Patch",
   "version": "2.7.6",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "GNU Patch tool to applies differences produced by diff",
   "website": "https://savannah.gnu.org/projects/patch/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
       "version": ">=0.2.0",
-      "options": [
-        "Pass3"
-      ]
+      "options": ["Pass3"]
     }
   ],
   "kernelDependencies": [],
@@ -25,11 +22,10 @@
       "active": false,
       "dependencies": [
         {
+          "port": "ProgrammingTools-Main",
           "name": "Make",
           "version": ">=0.0.0",
-          "options": [
-            "Pass1"
-          ]
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []

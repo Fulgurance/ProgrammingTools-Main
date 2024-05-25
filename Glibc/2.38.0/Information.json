@@ -2,21 +2,21 @@
   "port": "ProgrammingTools-Main",
   "name": "Glibc",
   "version": "2.38.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "The GNU C Library project",
   "website": "https://www.gnu.org/software/libc/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "ProgrammingLanguages-Main",
       "name": "Python",
-      "version": "3.11.4",
+      "version": ">=3.11.4",
       "options": []
     },
     {
+      "port": "ProgrammingTools-Main",
       "name": "Bison",
-      "version": "3.8.2",
+      "version": ">=3.8.2",
       "options": []
     }
   ],
@@ -42,6 +42,7 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Kernels-Main",
           "name": "Linux",
           "version": ">=0.0.0",
           "options": ["Pass1"]

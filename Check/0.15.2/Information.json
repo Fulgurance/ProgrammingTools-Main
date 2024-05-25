@@ -2,14 +2,13 @@
   "port": "ProgrammingTools-Main",
   "name": "Check",
   "version": "0.15.2",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "Unit testing framework for C",
   "website": "https://libcheck.github.io/check",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
       "version": ">=0.2.0",
       "options": []

@@ -2,16 +2,15 @@
   "port": "ProgrammingTools-Main",
   "name": "Gdb",
   "version": "13.2.0",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "The GNU Project debugger",
   "website": "https://sourceware.org/gdb",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "SystemBase-Main",
       "name": "SystemBase",
-      "version": "0.2.0",
+      "version": ">=0.2.0",
       "options": []
     }
   ],
@@ -23,8 +22,9 @@
       "active": true,
       "dependencies": [
         {
+          "port": "BaseLibraries-Main",
           "name": "Six",
-          "version": "1.16.0",
+          "version": ">=1.16.0",
           "options": []
         }
       ],
@@ -36,8 +36,9 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Utilities-Main",
           "name": "Valgrind",
-          "version": "3.21.0",
+          "version": ">=3.21.0",
           "options": []
         }
       ],

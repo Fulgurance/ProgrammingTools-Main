@@ -2,16 +2,15 @@
   "port": "ProgrammingTools-Main",
   "name": "Make",
   "version": "4.4.1",
-  "architectures": [
-    "x86_64"
-  ],
+  "architectures": ["x86_64"],
   "description": "GNU Make tool to generate executables and other non-source files",
   "website": "https://www.gnu.org/software/make/",
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "BaseLibraries-Main",
       "name": "Libpipeline",
-      "version": "1.5.7",
+      "version": ">=1.5.7",
       "options": []
     }
   ],
@@ -23,11 +22,10 @@
       "active": false,
       "dependencies": [
         {
+          "port": "Archivers-Main",
           "name": "Gzip",
-          "version": "1.12.0",
-          "options": [
-            "Pass1"
-          ]
+          "version": ">=1.12.0",
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []
