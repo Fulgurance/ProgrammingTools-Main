@@ -11,8 +11,10 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/")
         copyFile("#{buildDirectoryPath}/ninja","#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/")
+
         makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/bash-completion/completions/ninja")
         copyFile("#{buildDirectoryPath}/misc/bash-completion","#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/bash-completion/completions/ninja")
+
         makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/zsh/site-functions/_ninja")
         copyFile("#{buildDirectoryPath}/misc/zsh-completion","#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/zsh/site-functions/_ninja")
     end
@@ -20,9 +22,9 @@ class Target < ISM::Software
     def install
         super
 
-        setPermissions("#{Ism.settings.rootPath}usr/bin/ninja",755)
-        setPermissions("#{Ism.settings.rootPath}usr/share/bash-completion/completions/ninja",644)
-        setPermissions("#{Ism.settings.rootPath}usr/share/zsh/site-functions/_ninja",644)
+        runChmodCommand(["0755","/usr/bin/ninja"])
+        runChmodCommand(["0644","/usr/share/bash-completion/completions/ninja"])
+        runChmodCommand(["0644","/usr/share/zsh/site-functions/_ninja"])
     end
 
 end

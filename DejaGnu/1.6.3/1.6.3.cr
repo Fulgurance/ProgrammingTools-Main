@@ -26,13 +26,21 @@ class Target < ISM::Software
                             "doc/dejagnu.txt",
                             "../doc/dejagnu.texi"],
                             buildDirectoryPath)
+
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/doc/dejagnu-1.6.3")
+
         moveFile("#{buildDirectoryPath}/doc/dejagnu.html","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.html")
         moveFile("#{buildDirectoryPath}/doc/dejagnu.txt","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.txt")
-        setPermissions("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3",755)
-        setPermissions("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.html",644)
-        setPermissions("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.txt",644)
+    end
+
+    def install
+        super
+
+        runChmodCommand(["0755","/usr/share/doc/dejagnu-1.6.3"])
+        runChmodCommand(["0644","/usr/share/doc/dejagnu-1.6.3/dejagnu.html"])
+        runChmodCommand(["0644","/usr/share/doc/dejagnu-1.6.3/dejagnu.txt"])
     end
 
 end

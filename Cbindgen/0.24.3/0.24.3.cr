@@ -17,7 +17,7 @@ class Target < ISM::Software
     def install
         super
 
-        setPermissions("#{Ism.settings.rootPath}usr/bin/cbindgen",0o755)
+        runChmodCommand(["0755","/usr/bin/cbindgen"])
     end
 
 end
