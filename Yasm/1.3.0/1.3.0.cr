@@ -3,7 +3,7 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceTextAtLineNumber("#{buildDirectoryPath(false)}Makefile.in","yasm$(EXEEXT) ytasm$(EXEEXT) vsyasm$(EXEEXT)","yasm$(EXEEXT)",101)
+        fileReplaceTextAtLineNumber("#{buildDirectoryPath}Makefile.in","yasm$(EXEEXT) ytasm$(EXEEXT) vsyasm$(EXEEXT)","yasm$(EXEEXT)",101)
     end
     
     def configure

@@ -25,13 +25,13 @@ class Target < ISM::Software
                 end
             else
                 if !option("Pass2")
-                    fileReplaceText(mainWorkDirectoryPath(false) +
+                    fileReplaceText(mainWorkDirectoryPath +
                                     "/gcc/config/i386/t-linux64",
                                     "m64=../lib64",
                                     "m64=../lib")
 
                     if option("32Bits")
-                        fileReplaceLineContaining(  mainWorkDirectoryPath(false) +
+                        fileReplaceLineContaining(  mainWorkDirectoryPath +
                                                     "/gcc/config/i386/t-linux64",
                                                     "MULTILIB_OSDIRNAMES+= m32=",
                                                     "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
@@ -41,9 +41,9 @@ class Target < ISM::Software
         end
 
         if option("Pass3")
-            fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/libgcc/Makefile.in","@thread_header@","gthr-posix.h",52)
+            fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/libgcc/Makefile.in","@thread_header@","gthr-posix.h",52)
 
-            fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/libstdc++-v3/include/Makefile.in","@thread_header@","gthr-posix.h",348)
+            fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/libstdc++-v3/include/Makefile.in","@thread_header@","gthr-posix.h",348)
         end
     end
     
@@ -155,17 +155,17 @@ class Target < ISM::Software
         end
 
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins")
-            moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins")
+            moveFile(Dir["#{Ism.settings.rootPath}usr/lib/*gdb.py"],"#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
 
 
-            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/cpp",:symbolicLink)
-            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",:symbolicLinkByOverwrite)
+            makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/cpp",:symbolicLink)
+            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",:symbolicLinkByOverwrite)
         end
 
         if option("Pass3")
-            makeLink("gcc","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
+            makeLink("gcc","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cc",:symbolicLink)
         end
     end
 

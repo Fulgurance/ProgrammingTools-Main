@@ -4,11 +4,11 @@ class Target < ISM::Software
         @buildDirectory = true
         super
 
-        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath(false)}/kde-modules/KDEInstallDirsCommon.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",44)
+        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/kde-modules/KDEInstallDirsCommon.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",44)
 
-        fileReplaceText("#{mainWorkDirectoryPath(false)}/ECMConfig.cmake.in","@PACKAGE_INIT@","set(SAVE_PACKAGE_PREFIX_DIR \"${PACKAGE_PREFIX_DIR}\")\n@PACKAGE_INIT@")
+        fileReplaceText("#{mainWorkDirectoryPath}/ECMConfig.cmake.in","@PACKAGE_INIT@","set(SAVE_PACKAGE_PREFIX_DIR \"${PACKAGE_PREFIX_DIR}\")\n@PACKAGE_INIT@")
 
-        fileReplaceText("#{mainWorkDirectoryPath(false)}/ECMConfig.cmake.in","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")\nset(PACKAGE_PREFIX_DIR \"${SAVE_PACKAGE_PREFIX_DIR}\")")
+        fileReplaceText("#{mainWorkDirectoryPath}/ECMConfig.cmake.in","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")\nset(PACKAGE_PREFIX_DIR \"${SAVE_PACKAGE_PREFIX_DIR}\")")
     end
     
     def configure

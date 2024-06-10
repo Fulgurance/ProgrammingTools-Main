@@ -10,7 +10,7 @@ class Target < ISM::Software
         super
 
         runPythonCommand(["setup.py", "install", "--root=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}"],buildDirectoryPath)
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/usr/share/bash-completion/completions/meson")
+        makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/bash-completion/completions/meson")
     end
 
 end

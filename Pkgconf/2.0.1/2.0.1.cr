@@ -20,8 +20,8 @@ class Target < ISM::Software
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
-        makeLink("pkgconf","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/bin/pkg-config",:symbolicLink)
-        makeLink("pkgconf.1","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/share/man/man1/pkg-config.1",:symbolicLink)
+        makeLink("pkgconf","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/pkg-config",:symbolicLink)
+        makeLink("pkgconf.1","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/man/man1/pkg-config.1",:symbolicLink)
     end
 
 end

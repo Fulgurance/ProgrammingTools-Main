@@ -3,8 +3,8 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceTextAtLineNumber("#{buildDirectoryPath(false)}Modules/GNUInstallDirs.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",289)
-        fileReplaceTextAtLineNumber("#{buildDirectoryPath(false)}Modules/GNUInstallDirs.cmake","set(__LAST_LIBDIR_DEFAULT \"lib64\")","set(__LAST_LIBDIR_DEFAULT \"lib\")",291)
+        fileReplaceTextAtLineNumber("#{buildDirectoryPath}Modules/GNUInstallDirs.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",289)
+        fileReplaceTextAtLineNumber("#{buildDirectoryPath}Modules/GNUInstallDirs.cmake","set(__LAST_LIBDIR_DEFAULT \"lib64\")","set(__LAST_LIBDIR_DEFAULT \"lib\")",291)
     end
     
     def configure

@@ -24,7 +24,7 @@ class Target < ISM::Software
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
 
-        makeLink("node","#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/share/doc/node-18.17.1",:symbolicLinkByOverwrite)
+        makeLink("node","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/doc/node-18.17.1",:symbolicLinkByOverwrite)
     end
 
 end

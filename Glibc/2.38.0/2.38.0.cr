@@ -137,38 +137,38 @@ class Target < ISM::Software
 
     def prepare32Bits
         makeDirectory("#{buildDirectoryPath(false, entry: "32Bits")}/32Bits")
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu")
 
         makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "32Bits")}/32Bits",
                     "install"],
                     path: buildDirectoryPath(entry: "32Bits"))
 
         copyDirectory(  "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/lib32",
-                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/lib32")
+                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib32")
 
         copyFile(   "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/include/gnu/lib-names-32.h",
-                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-32.h")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-32.h")
 
         copyFile(   "#{buildDirectoryPath(false, entry: "32Bits")}/32Bits/usr/include/gnu/stubs-32.h",
-                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/stubs-32.h")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu/stubs-32.h")
     end
 
     def preparex32Bits
         makeDirectory("#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits")
-        makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu")
 
         makeSource( ["DESTDIR=#{buildDirectoryPath(entry: "x32Bits")}/x32Bits",
                     "install"],
                     path: buildDirectoryPath(entry: "x32Bits"))
 
         copyDirectory(  "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/libx32",
-                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/libx32")
+                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/libx32")
 
         copyFile(   "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/include/gnu/lib-names-x32.h",
-                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-x32.h")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu/lib-names-x32.h")
 
         copyFile(   "#{buildDirectoryPath(false, entry: "x32Bits")}/x32Bits/usr/include/gnu/stubs-x32.h",
-                    "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/include/gnu/stubs-x32.h")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/gnu/stubs-x32.h")
     end
 
     def prepareInstallation
@@ -177,11 +177,11 @@ class Target < ISM::Software
         if option("Pass1")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}")
         else
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}var/cache/nscd")
-            makeDirectory("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}usr/lib/locale")
-            generateEmptyFile("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}etc/ld.so.conf")
-            fileReplaceText("#{mainWorkDirectoryPath(false)}Makefile","$(PERL)","echo not running")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}var/cache/nscd")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/locale")
+            generateEmptyFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/ld.so.conf")
+            fileReplaceText("#{mainWorkDirectoryPath}Makefile","$(PERL)","echo not running")
         end
 
         makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
@@ -191,11 +191,11 @@ class Target < ISM::Software
                 "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
                 "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
         else
-            fileReplaceText("#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/usr/bin/ldd",
+            fileReplaceText("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
                 "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
                 "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
 
-            copyFile("#{mainWorkDirectoryPath(false)}/nscd/nscd.conf","#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}/etc/nscd.conf")
+            copyFile("#{mainWorkDirectoryPath}/nscd/nscd.conf","#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/etc/nscd.conf")
 
             nsswitchData = <<-CODE
             passwd: files
@@ -210,19 +210,19 @@ class Target < ISM::Software
             ethers: files
             rpc: files
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}etc/nsswitch.conf",nsswitchData)
+            fileWriteData("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}etc/nsswitch.conf",nsswitchData)
 
             ldsoData = <<-CODE
             include /etc/ld.so.conf.d/*.conf
             CODE
-            fileWriteData("#{builtSoftwareDirectoryPath(false)}/#{Ism.settings.rootPath}etc/ld.so.conf",ldsoData)
+            fileWriteData("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}etc/ld.so.conf",ldsoData)
         end
 
         if option("32Bits")
             prepare32Bits
 
             makeLink(   "../lib32/ld-linux.so.2",
-                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/lib/ld-linux.so.2",
+                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/lib/ld-linux.so.2",
                             :symbolicLinkByOverwrite)
         end
 
@@ -230,7 +230,7 @@ class Target < ISM::Software
             preparex32Bits
 
             makeLink(   "../libx32/ld-linux-x32.so.2",
-                        "#{builtSoftwareDirectoryPath(false)}#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
+                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
                             :symbolicLinkByOverwrite)
         end
     end
