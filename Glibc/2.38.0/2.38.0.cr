@@ -44,7 +44,7 @@ class Target < ISM::Software
                                                 "CXX" => "#{Ism.settings.chrootTarget}-g++ -m32"})
         else
             configureSource([   "--prefix=/usr",
-                                "--host=i686-#{Ism.settings.targetName}-linux-gnu",
+                                "--host=i686-#{Ism.settings.systemTargetName}-linux-gnu",
                                 "--build=$(../scripts/config.guess)",
                                 "--enable-kernel=4.14",
                                 "--with-headers=#{Ism.settings.rootPath}/usr/include",

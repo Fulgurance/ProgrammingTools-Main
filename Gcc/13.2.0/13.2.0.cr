@@ -161,7 +161,7 @@ class Target < ISM::Software
 
 
             makeLink("/usr/bin/cpp","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/cpp",:symbolicLink)
-            makeLink("../../libexec/gcc/#{Ism.settings.target}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",:symbolicLinkByOverwrite)
+            makeLink("../../libexec/gcc/#{Ism.settings.systemTarget}13.2.0/liblto_plugin.so","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",:symbolicLinkByOverwrite)
         end
 
         if option("Pass3")
@@ -173,8 +173,8 @@ class Target < ISM::Software
         super
 
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include","root","root")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.target}/linux-gnu/13.2.0/include-fixed","root","root")
+            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include","root","root")
+            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include-fixed","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include","root","root")
             setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include-fixed","root","root")
         end
