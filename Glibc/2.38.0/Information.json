@@ -45,7 +45,7 @@
           "port": "SystemBase-Main",
           "name": "Kernel",
           "version": ">=0.0.0",
-          "options": []
+          "options": ["Pass1"]
         }
       ],
       "kernelDependencies": []
