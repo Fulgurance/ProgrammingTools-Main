@@ -138,12 +138,12 @@ class Target < ISM::Software
         if option("Pass1")
             makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
 
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
-                        getFileContent(mainWorkDirectoryPath + "gcc/limitx.h"))
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
-                            getFileContent(mainWorkDirectoryPath + "gcc/glimits.h"))
-            fileAppendData( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
-                            getFileContent(mainWorkDirectoryPath + "gcc/limity.h"))
+            fileAppendDataFromFile( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+                                    mainWorkDirectoryPath + "gcc/limitx.h")
+            fileAppendDataFromFile( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+                                    mainWorkDirectoryPath + "gcc/glimits.h")
+            fileAppendDataFromFile( "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+                                    mainWorkDirectoryPath + "gcc/limity.h")
         elsif option("Pass2")
             makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}","install"],buildDirectoryPath)
 
