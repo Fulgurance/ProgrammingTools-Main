@@ -42,8 +42,8 @@
       "active": false,
       "dependencies": [
         {
-          "port": "Kernels-Main",
-          "name": "Linux",
+          "port": "SystemBase-Main",
+          "name": "Kernel",
           "version": ">=0.0.0",
           "options": ["Pass1"]
         }
