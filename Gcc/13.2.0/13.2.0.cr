@@ -173,10 +173,11 @@ class Target < ISM::Software
         super
 
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include","root","root")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include-fixed","root","root")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include","root","root")
-            setOwnerRecursively("#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include-fixed","root","root")
+
+            runChownCommand(["-R","root:root","#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include"])
+            runChownCommand(["-R","root:root","#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include-fixed"])
+            runChownCommand(["-R","root:root","#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include"])
+            runChownCommand(["-R","root:root","#{Ism.settings.rootPath}usr/lib/gcc/#{Ism.settings.architecture}-pc-linux-gnu/13.2.0/include-fixed"])
         end
     end
 
