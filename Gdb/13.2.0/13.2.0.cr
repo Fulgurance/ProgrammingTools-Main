@@ -9,10 +9,10 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--with-system-readline",
-                            "--with-python=/usr/bin/python3"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr          \
+                                    --with-system-readline  \
+                                    --with-python=/usr/bin/python3",
+                        path:       buildDirectoryPath)
     end
     
     def build
@@ -24,8 +24,11 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","-C","gdb","install"],buildDirectoryPath)
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","-C","gdbserver","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} -C gdb install",
+                    path:       buildDirectoryPath)
+
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} -C gdbserver install",
+                    path:       buildDirectoryPath)
     end
 
 end

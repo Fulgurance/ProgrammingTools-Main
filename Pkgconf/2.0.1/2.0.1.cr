@@ -3,10 +3,10 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--disable-static",
-                            "--docdir=/usr/share/doc/pkgconf-2.0.1"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr      \
+                                    --disable-static    \
+                                    --docdir=/usr/share/doc/pkgconf-2.0.1",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -18,10 +18,16 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
-        makeLink("pkgconf","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/pkg-config",:symbolicLink)
-        makeLink("pkgconf.1","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/man/man1/pkg-config.1",:symbolicLink)
+        makeLink(   target: "pkgconf",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/pkg-config",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "pkgconf.1",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/man/man1/pkg-config.1",
+                    type:   :symbolicLink)
     end
 
 end

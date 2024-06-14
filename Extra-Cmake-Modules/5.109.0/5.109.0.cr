@@ -4,19 +4,26 @@ class Target < ISM::Software
         @buildDirectory = true
         super
 
-        fileReplaceTextAtLineNumber("#{mainWorkDirectoryPath}/kde-modules/KDEInstallDirsCommon.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",44)
+        fileReplaceTextAtLineNumber(path:       "#{mainWorkDirectoryPath}/kde-modules/KDEInstallDirsCommon.cmake",
+                                    text:       "set(_LIBDIR_DEFAULT \"lib64\")",
+                                    newText:    "set(_LIBDIR_DEFAULT \"lib\")",
+                                    lineNumber: 44)
 
-        fileReplaceText("#{mainWorkDirectoryPath}/ECMConfig.cmake.in","@PACKAGE_INIT@","set(SAVE_PACKAGE_PREFIX_DIR \"${PACKAGE_PREFIX_DIR}\")\n@PACKAGE_INIT@")
+        fileReplaceText(path:       "#{mainWorkDirectoryPath}/ECMConfig.cmake.in",
+                        text:       "@PACKAGE_INIT@",
+                        newText:    "set(SAVE_PACKAGE_PREFIX_DIR \"${PACKAGE_PREFIX_DIR}\")\n@PACKAGE_INIT@")
 
-        fileReplaceText("#{mainWorkDirectoryPath}/ECMConfig.cmake.in","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")","include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")\nset(PACKAGE_PREFIX_DIR \"${SAVE_PACKAGE_PREFIX_DIR}\")")
+        fileReplaceText(path:       "#{mainWorkDirectoryPath}/ECMConfig.cmake.in",
+                        text:       "include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")",
+                        newText:    "include(\"${ECM_MODULE_DIR}/ECMUseFindModules.cmake\")\nset(PACKAGE_PREFIX_DIR \"${SAVE_PACKAGE_PREFIX_DIR}\")")
     end
     
     def configure
         super
 
-        runCmakeCommand([   "-DCMAKE_INSTALL_PREFIX=/usr",
-                            ".."],
-                            buildDirectoryPath)
+        runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr    \
+                                    ..",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -28,7 +35,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end

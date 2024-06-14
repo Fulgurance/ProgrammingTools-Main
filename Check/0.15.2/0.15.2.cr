@@ -2,19 +2,22 @@ class Target < ISM::Software
     
     def configure
         super
-        configureSource([   "--prefix=/usr",
-                            "--disable-static"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr  \
+                                    --disable-static",
+                        path:       buildDirectoryPath)
     end
     
     def build
         super
+
         makeSource(path: buildDirectoryPath)
     end
     
     def prepareInstallation
         super
-        makeSource(["docdir=/usr/share/doc/check-0.15.2","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+
+        makeSource( arguments:  "docdir=/usr/share/doc/check-0.15.2 DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end

@@ -3,22 +3,28 @@ class Target < ISM::Software
     def prepare
         super
 
-        fileReplaceTextAtLineNumber("#{buildDirectoryPath}Modules/GNUInstallDirs.cmake","set(_LIBDIR_DEFAULT \"lib64\")","set(_LIBDIR_DEFAULT \"lib\")",289)
-        fileReplaceTextAtLineNumber("#{buildDirectoryPath}Modules/GNUInstallDirs.cmake","set(__LAST_LIBDIR_DEFAULT \"lib64\")","set(__LAST_LIBDIR_DEFAULT \"lib\")",291)
+        fileReplaceTextAtLineNumber(path:       "#{buildDirectoryPath}Modules/GNUInstallDirs.cmake",
+                                    text:       "set(_LIBDIR_DEFAULT \"lib64\")",
+                                    newText:    "set(_LIBDIR_DEFAULT \"lib\")",
+                                    lineNumber: 289)
+        fileReplaceTextAtLineNumber(path:       "#{buildDirectoryPath}Modules/GNUInstallDirs.cmake",
+                                    text:       "set(__LAST_LIBDIR_DEFAULT \"lib64\")",
+                                    newText:    "set(__LAST_LIBDIR_DEFAULT \"lib\")",
+                                    lineNumber: 291)
     end
     
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--system-libs",
-                            "--mandir=/share/man",
-                            "--no-system-jsoncpp",
-                            "--no-system-cppdap",
-                            "--no-system-librhash",
-                            "#{option("Qt") ? "--qt-gui" : ""}",
-                            "--docdir=/share/doc/cmake-3.27.2"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr                      \
+                                    --system-libs                       \
+                                    --mandir=/share/man                 \
+                                    --no-system-jsoncpp                 \
+                                    --no-system-cppdap                  \
+                                    --no-system-librhash                \
+                                    #{option("Qt") ? "--qt-gui" : ""}   \
+                                    --docdir=/share/doc/cmake-3.27.2"],
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -30,7 +36,8 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end

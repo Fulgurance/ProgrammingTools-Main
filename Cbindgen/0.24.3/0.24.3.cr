@@ -3,7 +3,8 @@ class Target < ISM::Software
     def build
         super
 
-        runCargoCommand(["build","--release"],buildDirectoryPath)
+        runCargoCommand(arguments:  "build --release",
+                        path:       buildDirectoryPath)
     end
     
     def prepareInstallation
@@ -11,13 +12,14 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/")
 
-        copyFile("#{buildDirectoryPath}/target/release/cbindgen","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cbindgen")
+        copyFile(   "#{buildDirectoryPath}/target/release/cbindgen",
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cbindgen")
     end
 
     def install
         super
 
-        runChmodCommand(["0755","/usr/bin/cbindgen"])
+        runChmodCommand("0755 /usr/bin/cbindgen")
     end
 
 end

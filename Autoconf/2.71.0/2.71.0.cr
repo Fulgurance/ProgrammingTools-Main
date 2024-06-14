@@ -3,9 +3,9 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource([   "--prefix=/usr",
-                            "--program-suffix=2.71"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr  \
+                                    --program-suffix=2.71",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -17,15 +17,36 @@ class Target < ISM::Software
     def prepareInstallation
         super
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
-        makeLink("autoconf2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoconf",:symbolicLink)
-        makeLink("autoheader2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoheader",:symbolicLink)
-        makeLink("autom4te2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autom4te",:symbolicLink)
-        makeLink("autoreconf2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoreconf",:symbolicLink)
-        makeLink("autoscan2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoscan",:symbolicLink)
-        makeLink("autoupdate2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoupdate",:symbolicLink)
-        makeLink("ifnames2.71","#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/ifnames",:symbolicLink)
+        makeLink(   target: "autoconf2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoconf",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "autoheader2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoheader",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "autom4te2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autom4te",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "autoreconf2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoreconf",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "autoscan2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoscan",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "autoupdate2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/autoupdate",
+                    type:   :symbolicLink)
+
+        makeLink(   target: "ifnames2.71",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/ifnames",
+                    type:   :symbolicLink)
     end
 
 end

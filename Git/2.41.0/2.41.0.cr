@@ -2,10 +2,10 @@ class Target < ISM::Software
     
     def configure
         super
-        configureSource([   "--prefix=/usr",
-                            "--with-gitconfig=/etc/gitconfig",
-                            "--with-python=python3"],
-                            buildDirectoryPath)
+        configureSource(arguments:  "--prefix=/usr                  \
+                                    --with-gitconfig=/etc/gitconfig \
+                                    --with-python=python3",
+                        path:       buildDirectoryPath)
     end
 
     def build
@@ -15,7 +15,8 @@ class Target < ISM::Software
     
     def prepareInstallation
         super
-        makeSource(["perllibdir=/usr/lib/perl5/5.38/site_perl","DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "perllibdir=/usr/lib/perl5/5.38/site_perl DESTDIR=#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
     end
 
 end
