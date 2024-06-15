@@ -7,7 +7,7 @@ class Target < ISM::Software
             configureSource(arguments:  "--prefix=/usr                      \
                                         --host=#{Ism.settings.chrootTarget} \
                                         --build=$(build-aux/config.guess)",
-                            patch:      buildDirectoryPath)
+                            path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr",
                             path:       buildDirectoryPath)
