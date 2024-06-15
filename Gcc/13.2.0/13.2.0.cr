@@ -24,7 +24,7 @@ class Target < ISM::Software
                 if option("32Bits")
                     fileReplaceLineContaining(  path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
                                                 text:       "MULTILIB_OSDIRNAMES+= m32=",
-                                                newText:    "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
+                                                newLine:    "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
                 end
             else
                 if !option("Pass2")
@@ -35,7 +35,7 @@ class Target < ISM::Software
                     if option("32Bits")
                         fileReplaceLineContaining(  path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
                                                     text:       "MULTILIB_OSDIRNAMES+= m32=",
-                                                    newText:    "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
+                                                    newLine:    "MULTILIB_OSDIRNAMES+= m32=../lib32$(call if_multiarch,:i386-linux-gnu)")
                     end
                 end
             end
