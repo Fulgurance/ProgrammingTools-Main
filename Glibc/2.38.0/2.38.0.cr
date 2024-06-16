@@ -26,6 +26,8 @@ class Target < ISM::Software
             makeLink(   target: "../lib/ld-linux-x86-64.so.2",
                         path:   "#{Ism.settings.rootPath}/lib64/ld-lsb-x86-64.so.3",
                         type:   :symbolicLinkByOverwrite)
+        else
+            deleteFile("/usr/include/scsi")
         end
     end
 
@@ -236,6 +238,12 @@ class Target < ISM::Software
 
             makeLink(   target: "../libx32/ld-linux-x32.so.2",
                         path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/lib/ld-linux-x32.so.2",
+                        type:   :symbolicLinkByOverwrite)
+        end
+
+        if !option("Pass1")
+            makeLink(   target: "../src/#{mainKernelName}/usr/include/scsi",
+                        path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/include/scsi",
                         type:   :symbolicLinkByOverwrite)
         end
     end
