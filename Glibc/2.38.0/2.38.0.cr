@@ -187,7 +187,8 @@ class Target < ISM::Software
                             newText:    "echo not running")
         end
 
-        makeSource(["DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}","install"],buildDirectoryPath)
+        makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
+                    path:       buildDirectoryPath)
 
         if option("Pass1")
             fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
