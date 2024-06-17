@@ -23,7 +23,7 @@ class Target < ISM::Software
                                     --no-system-cppdap                  \
                                     --no-system-librhash                \
                                     #{option("Qt") ? "--qt-gui" : ""}   \
-                                    --docdir=/share/doc/cmake-3.27.2"],
+                                    --docdir=/share/doc/cmake-3.27.2",
                         path:       buildDirectoryPath)
     end
 
