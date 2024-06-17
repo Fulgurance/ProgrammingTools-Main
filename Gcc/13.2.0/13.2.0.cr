@@ -195,8 +195,8 @@ class Target < ISM::Software
 
         if !option("Pass1") && !option("Pass2") && !option("Pass3")
 
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include")
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/linux-gnu/13.2.0/include-fixed")
+            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}-linux-gnu/13.2.0/include")
+            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}-linux-gnu/13.2.0/include-fixed")
             runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemArchitecture}-pc-linux-gnu/13.2.0/include")
             runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemArchitecture}-pc-linux-gnu/13.2.0/include-fixed")
         end
