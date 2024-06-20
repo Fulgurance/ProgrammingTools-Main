@@ -1,18 +1,5 @@
 class Target < ISM::Software
     
-    def prepare
-        super
-
-        fileReplaceTextAtLineNumber(path:       "#{buildDirectoryPath}Modules/GNUInstallDirs.cmake",
-                                    text:       "set(_LIBDIR_DEFAULT \"lib64\")",
-                                    newText:    "set(_LIBDIR_DEFAULT \"lib\")",
-                                    lineNumber: 289)
-        fileReplaceTextAtLineNumber(path:       "#{buildDirectoryPath}Modules/GNUInstallDirs.cmake",
-                                    text:       "set(__LAST_LIBDIR_DEFAULT \"lib64\")",
-                                    newText:    "set(__LAST_LIBDIR_DEFAULT \"lib\")",
-                                    lineNumber: 291)
-    end
-    
     def configure
         super
 
