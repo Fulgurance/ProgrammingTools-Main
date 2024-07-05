@@ -150,9 +150,9 @@ class Target < ISM::Software
             makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath} install",
                         path:       buildDirectoryPath)
 
-            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib/libstdc++.la")
-            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib/libstdc++fs.la")
-            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib/libsupc++.la")
+            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libstdc++.la")
+            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libstdc++fs.la")
+            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libsupc++.la")
         else
             makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
                         path:       buildDirectoryPath)
