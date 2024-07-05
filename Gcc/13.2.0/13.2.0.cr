@@ -17,10 +17,6 @@ class Target < ISM::Software
 
         if architecture("x86_64")
             if option("Pass1") || option("Pass3")
-                fileReplaceText(path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
-                                text:       "m64=../lib64",
-                                newText:    "m64=../lib")
-
                 if option("32Bits")
                     fileReplaceLineContaining(  path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
                                                 text:       "MULTILIB_OSDIRNAMES+= m32=",
@@ -28,10 +24,6 @@ class Target < ISM::Software
                 end
             else
                 if !option("Pass2")
-                    fileReplaceText(path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
-                                    text:       "m64=../lib64",
-                                    newText:    "m64=../lib")
-
                     if option("32Bits")
                         fileReplaceLineContaining(  path:       "#{mainWorkDirectoryPath}/gcc/config/i386/t-linux64",
                                                     text:       "MULTILIB_OSDIRNAMES+= m32=",
