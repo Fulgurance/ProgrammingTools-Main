@@ -162,7 +162,7 @@ class Target < ISM::Software
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins")
 
-            moveFile(   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/*gdb.py",
+            moveFile(   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib64/*gdb.py",
                         "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
 
 
