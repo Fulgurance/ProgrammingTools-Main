@@ -60,15 +60,11 @@ class Target < ISM::Software
         makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
                     path:       buildDirectoryPath)
 
-        if option("Pass1")
-            fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
-                            text:       "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
-                            newText:    "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
-        else
-            fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
-                            text:       "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
-                            newText:    "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
+        fileReplaceText(path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
+                        text:       "RTLDLIST=\"/usr/lib/ld-linux.so.2 /usr/lib64/ld-linux-x86-64.so.2 /usr/libx32/ld-linux-x32.so.2\"",
+                        newText:    "RTLDLIST=\"/lib/ld-linux.so.2 /lib64/ld-linux-x86-64.so.2 /libx32/ld-linux-x32.so.2\"")
 
+        if !option("Pass1")
             copyFile(   "#{mainWorkDirectoryPath}/nscd/nscd.conf",
                         "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/etc/nscd.conf")
 
