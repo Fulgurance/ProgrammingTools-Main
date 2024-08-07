@@ -4,6 +4,7 @@ class Target < ISM::Software
         super
         configureSource(arguments:  "--prefix=/usr                  \
                                     --with-gitconfig=/etc/gitconfig \
+                                    --with-editor=nano              \
                                     --with-python=python3",
                         path:       buildDirectoryPath)
     end
