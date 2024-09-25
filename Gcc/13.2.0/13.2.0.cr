@@ -113,7 +113,7 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                                                                                          \
-                                        --build=#{Ism.settings.Target}                                                                          \
+                                        --build=#{Ism.settings.systemTarget}                                                                          \
                                         LD=ld                                                                                                   \
                                         --enable-languages=c,c++                                                                                \
                                         --enable-default-pie                                                                                    \
