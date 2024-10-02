@@ -3,7 +3,7 @@ class Target < ISM::Software
     def build
         super
 
-        runCargoCommand(arguments:  "build --release",
+        runCargoCommand(arguments:  "build --target #{Ism.settings.systemTarget} --release",
                         path:       buildDirectoryPath)
     end
     
