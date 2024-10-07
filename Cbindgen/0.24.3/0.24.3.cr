@@ -55,7 +55,7 @@ class Target < ISM::Software
         CODE
         fileWriteData("#{buildDirectoryPath}/#{Ism.settings.systemTarget}.json",targetData)
 
-        runCargoCommand(arguments:  "build --release --target #{buildDirectoryPath}/#{Ism.settings.systemTarget}.json",
+        runCargoCommand(arguments:  "build --release --target #{Ism.settings.systemTarget}",
                         path:       buildDirectoryPath)
     end
     
