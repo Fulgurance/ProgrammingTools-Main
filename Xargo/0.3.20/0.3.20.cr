@@ -72,6 +72,7 @@ class Target < ISM::Software
         super
 
         runChmodCommand("0755 /usr/bin/xargo")
+        runXargoCommand("xargo build --release --target #{Ism.settings.systemTarget}")
     end
 
 end
