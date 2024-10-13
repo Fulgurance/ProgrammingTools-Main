@@ -8,9 +8,9 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "port": "ProgrammingLanguages-Main",
-      "name": "Rust",
-      "version": ">=1.71.1",
+      "port": "ProgrammingTools-Main",
+      "name": "Xargo",
+      "version": ">=0.3.20",
       "options": []
     }
   ],
