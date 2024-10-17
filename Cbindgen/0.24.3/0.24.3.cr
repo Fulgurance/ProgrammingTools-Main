@@ -12,7 +12,7 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/")
 
-        copyFile(   "#{buildDirectoryPath}/target/#{Ism.settings.systemTarget}/release/cbindgen",
+        copyFile(   "#{buildDirectoryPath}/target/release/cbindgen",
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cbindgen")
     end
 
