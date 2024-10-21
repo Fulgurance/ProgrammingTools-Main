@@ -1,2 +1,2 @@
-class PythonPackageSoftware < ISM::SemiVirtualSoftware
+class Target < ISM::PythonPackageSoftware
 end
