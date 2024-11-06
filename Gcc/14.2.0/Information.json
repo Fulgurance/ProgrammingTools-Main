@@ -1,0 +1,111 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Gcc",
+  "version": "14.2.0",
+  "architectures": ["x86_64"],
+  "description": "The GNU Compiler Collection",
+  "website": "https://gcc.gnu.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Gmp",
+      "version": ">=6.3.0",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Mpc",
+      "version": ">=1.3.1",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Mpfr",
+      "version": ">=4.2.0",
+      "options": []
+    },
+    {
+      "port": "Archivers-Main",
+      "name": "Zstd",
+      "version": ">=1.5.5",
+      "options": []
+    },
+    {
+      "port": "BaseLibraries-Main",
+      "name": "Zlib",
+      "version": ">=1.2.13",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [
+    {
+      "name": "Multilib",
+      "description": "Enable multilib support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": []
+    },
+    {
+      "name": "32Bits",
+      "description": "Enable 32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_IA32_EMULATION"]
+    },
+    {
+      "name": "x32Bits",
+      "description": "Enable x32 bits support",
+      "active": false,
+      "dependencies": [],
+      "kernelDependencies": ["CONFIG_X86_X32"]
+    },
+    {
+      "name": "Pass1",
+      "description": "Enable the phase 1 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "ProgrammingTools-Main",
+          "name": "Binutils",
+          "version": ">=2.41.0",
+          "options": ["Pass1"]
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Pass2",
+      "description": "Enable the phase 2 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "ProgrammingTools-Main",
+          "name": "Glibc",
+          "version": ">=2.38.0",
+          "options": ["Pass1"]
+        }
+      ],
+      "kernelDependencies": []
+    },
+    {
+      "name": "Pass3",
+      "description": "Enable the phase 3 of the cross toolchain building",
+      "active": false,
+      "dependencies": [
+        {
+          "port": "ProgrammingTools-Main",
+          "name": "Binutils",
+          "version": ">=2.41.0",
+          "options": ["Pass2"]
+        }
+      ],
+      "kernelDependencies": []
+    }
+  ],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}

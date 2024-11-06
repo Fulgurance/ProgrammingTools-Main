@@ -1,13 +1,18 @@
 class Target < ISM::Software
     
+    def prepare
+        @buildDirectory = true
+        super
+    end
+    
     def configure
         super
 
-        configureSource(arguments:  "--prefix=/usr  \
-                                    --docdir=/usr/share/doc/#{versionName}",
+        runCmakeCommand(arguments:  "-DCMAKE_INSTALL_PREFIX=/usr    \
+                                    ..",
                         path:       buildDirectoryPath)
     end
-    
+
     def build
         super
 

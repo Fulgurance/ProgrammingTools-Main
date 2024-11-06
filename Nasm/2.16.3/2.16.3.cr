@@ -3,11 +3,10 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource(arguments:  "--prefix=/usr  \
-                                    --docdir=/usr/share/doc/#{versionName}",
+        configureSource(arguments:  "--prefix=/usr",
                         path:       buildDirectoryPath)
     end
-    
+
     def build
         super
 

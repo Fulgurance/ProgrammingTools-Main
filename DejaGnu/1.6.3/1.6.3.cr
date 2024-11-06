@@ -31,20 +31,20 @@ class Target < ISM::Software
         makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath} install",
                     path:       buildDirectoryPath)
 
-        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/doc/dejagnu-1.6.3")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/doc/#{versionName}")
 
         moveFile(   "#{buildDirectoryPath}/doc/dejagnu.html",
-                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.html")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/#{versionName}/dejagnu.html")
         moveFile(   "#{buildDirectoryPath}/doc/dejagnu.txt",
-                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/dejagnu-1.6.3/dejagnu.txt")
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/share/doc/#{versionName}/dejagnu.txt")
     end
 
     def install
         super
 
-        runChmodCommand("0755 /usr/share/doc/dejagnu-1.6.3")
-        runChmodCommand("0644 /usr/share/doc/dejagnu-1.6.3/dejagnu.html")
-        runChmodCommand("0644 /usr/share/doc/dejagnu-1.6.3/dejagnu.txt")
+        runChmodCommand("0755 /usr/share/doc/#{versionName}")
+        runChmodCommand("0644 /usr/share/doc/#{versionName}/dejagnu.html")
+        runChmodCommand("0644 /usr/share/doc/#{versionName}/dejagnu.txt")
     end
 
 end
