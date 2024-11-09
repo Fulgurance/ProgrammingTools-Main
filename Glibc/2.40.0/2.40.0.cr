@@ -50,6 +50,8 @@ class Target < ISM::Software
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}var/cache/nscd")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/locale")
+            makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/ld.so.conf.d")
+
             generateEmptyFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/ld.so.conf")
 
             fileReplaceText(path:       "#{mainWorkDirectoryPath}Makefile",
