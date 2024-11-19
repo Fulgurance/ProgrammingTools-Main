@@ -61,10 +61,12 @@ class Target < ISM::Software
             end
         end
 
+        glibcSoftwareName = "@ProgrammingTools-Main:Glibc"
+
         if option("Pass1")
             configureSource(arguments:  "--target=#{Ism.settings.chrootTarget}                                                                  \
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
-                                        --with-glibc-version=2.38                                                                               \
+                                        --with-glibc-version=#{softwareMinorVersion(glibcSoftwareName)}.#{softwareMinorVersion(glibcSoftwareName)}                                                                               \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
                                         --with-newlib                                                                                           \
                                         --without-headers                                                                                       \
@@ -117,6 +119,7 @@ class Target < ISM::Software
                                         LD=ld                                                                                                   \
                                         --enable-languages=c,c++                                                                                \
                                         --enable-default-pie                                                                                    \
+                                        --enable-host-pie                                                                                       \
                                         --enable-default-ssp                                                                                    \
                                         #{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"} \
                                         --disable-bootstrap                                                                                     \
@@ -152,6 +155,7 @@ class Target < ISM::Software
                         path:       buildDirectoryPath)
 
             deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libstdc++.la")
+            deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libstdc++exp.la")
             deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libstdc++fs.la")
             deleteFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/lib64/libsupc++.la")
         else
