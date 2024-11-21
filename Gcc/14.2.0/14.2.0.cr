@@ -158,7 +158,7 @@ class Target < ISM::Software
                         path:       buildDirectoryPath)
         end
 
-        if !option("Pass1") && !option("Pass2") && !option("Pass3")
+        if !passEnabled
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/share/gdb/auto-load/usr/lib")
             makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins")
 
@@ -170,7 +170,7 @@ class Target < ISM::Software
                         path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/cpp",
                         type:   :symbolicLink)
 
-            makeLink(   target: "../../libexec/gcc/#{Ism.settings.systemTarget}/#{version}/liblto_plugin.so",
+            makeLink(   target: "/usr/libexec/gcc/#{Ism.settings.systemTarget}/#{version}/liblto_plugin.so",
                         path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/lib/bfd-plugins/liblto_plugin.so",
                         type:   :symbolicLinkByOverwrite)
         end
@@ -185,7 +185,7 @@ class Target < ISM::Software
     def install
         super
 
-        if !option("Pass1") && !option("Pass2") && !option("Pass3")
+        if !passEnabled
 
             runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include")
             runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include-fixed")
