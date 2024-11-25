@@ -9,7 +9,7 @@ class Target < ISM::Software
                                     --no-system-jsoncpp                 \
                                     --no-system-cppdap                  \
                                     --no-system-librhash                \
-                                    #{option("Qt") ? "--qt-gui" : ""}   \
+                                    #{option("Qtbase") ? "--qt-gui" : ""}   \
                                     --docdir=/share/doc/#{versionName}",
                         path:       buildDirectoryPath)
     end

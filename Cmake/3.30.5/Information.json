@@ -49,13 +49,13 @@
       "kernelDependencies": []
     },
     {
-      "name": "Qt",
-      "description": "Enable qt support",
+      "name": "Qtbase",
+      "description": "Enable qtbase support",
       "active": false,
       "dependencies": [
         {
-          "port": "BaseLibraries-Main",
-          "name": "Qt",
+          "port": "QtLibraries-Main",
+          "name": "Qtbase",
           "version": ">=5.0.0",
           "options": []
         }
