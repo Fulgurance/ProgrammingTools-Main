@@ -36,7 +36,7 @@
       "active": true,
       "dependencies": [
         {
-          "port": "Security-Main",
+          "port": "SecuritySoftwares-Main",
           "name": "Gnupg",
           "version": ">=2.4.3",
           "options": []
