@@ -4,7 +4,9 @@ class Target < ISM::Software
         super
 
         runCargoCommand(arguments:  "build --release",
-                        path:       buildDirectoryPath)
+                        path:       buildDirectoryPath,
+                        environment:    {   "LIBSSH2_SYS_USE_PKG_CONFIG" => "1",
+                                            "LIBSQLITE3_SYS_USE_PKG_CONFIG" => "1"})
     end
     
     def prepareInstallation
