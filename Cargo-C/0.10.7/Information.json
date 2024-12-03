@@ -1,0 +1,23 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Cargo-C",
+  "version": "0.10.7",
+  "architectures": ["x86_64"],
+  "description": "Build and install C-compatible libraries ",
+  "website": "https://github.com/lu-zero/cargo-c",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "ProgrammingLanguages-Main",
+      "name": "Rust",
+      "version": ">=1.71.1",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}
