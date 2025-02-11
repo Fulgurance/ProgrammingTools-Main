@@ -1,0 +1,79 @@
+diff -ur Glibc-2.40.0.orig/sysdeps/unix/sysv/linux/configure Glibc-2.40.0/sysdeps/unix/sysv/linux/configure
+--- Glibc-2.40.0.orig/sysdeps/unix/sysv/linux/configure	2024-07-21 17:33:37.000000000 +0100
++++ Glibc-2.40.0/sysdeps/unix/sysv/linux/configure	2025-02-11 19:54:55.247597489 +0000
+@@ -136,37 +136,6 @@
+ # One Linux we use ldconfig.
+ use_ldconfig=yes
+ 
+-if test $host = $build; then
+-  # If $prefix/include/{net,scsi} are symlinks, make install will
+-  # clobber what they're linked to (probably a kernel tree).
+-  # test -L ought to work on all Linux boxes.
+-  if test "x$prefix" != xNONE; then
+-    ac_prefix=$prefix
+-  else
+-    ac_prefix=$ac_default_prefix
+-  fi
+-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for symlinks in ${ac_prefix}/include" >&5
+-printf %s "checking for symlinks in ${ac_prefix}/include... " >&6; }
+-  ac_message=
+-  if test -L ${ac_prefix}/include/net; then
+-    ac_message="$ac_message
+-   ${ac_prefix}/include/net is a symlink"
+-  fi
+-  if test -L ${ac_prefix}/include/scsi; then
+-    ac_message="$ac_message
+-   ${ac_prefix}/include/scsi is a symlink"
+-  fi
+-  if test -n "$ac_message"; then
+-    as_fn_error $? "$ac_message
+-'make install' will destroy the target of the link(s).
+-Delete the links and re-run configure, or better still, move the entire
+-${ac_prefix}/include directory out of the way." "$LINENO" 5
+-  else
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: ok" >&5
+-printf "%s\n" "ok" >&6; }
+-  fi
+-fi
+-
+ # We have inlined syscalls.
+ printf "%s\n" "#define HAVE_INLINED_SYSCALLS 1" >>confdefs.h
+ 
+diff -ur Glibc-2.40.0.orig/sysdeps/unix/sysv/linux/configure.ac Glibc-2.40.0/sysdeps/unix/sysv/linux/configure.ac
+--- Glibc-2.40.0.orig/sysdeps/unix/sysv/linux/configure.ac	2024-07-21 17:33:37.000000000 +0100
++++ Glibc-2.40.0/sysdeps/unix/sysv/linux/configure.ac	2025-02-11 19:55:11.004669554 +0000
+@@ -91,34 +91,5 @@
+ # One Linux we use ldconfig.
+ use_ldconfig=yes
+ 
+-if test $host = $build; then
+-  # If $prefix/include/{net,scsi} are symlinks, make install will
+-  # clobber what they're linked to (probably a kernel tree).
+-  # test -L ought to work on all Linux boxes.
+-  if test "x$prefix" != xNONE; then
+-    ac_prefix=$prefix
+-  else
+-    ac_prefix=$ac_default_prefix
+-  fi
+-  AC_MSG_CHECKING([for symlinks in ${ac_prefix}/include])
+-  ac_message=
+-  if test -L ${ac_prefix}/include/net; then
+-    ac_message="$ac_message
+-   ${ac_prefix}/include/net is a symlink"
+-  fi
+-  if test -L ${ac_prefix}/include/scsi; then
+-    ac_message="$ac_message
+-   ${ac_prefix}/include/scsi is a symlink"
+-  fi
+-  if test -n "$ac_message"; then
+-    AC_MSG_ERROR([$ac_message
+-'make install' will destroy the target of the link(s).
+-Delete the links and re-run configure, or better still, move the entire
+-${ac_prefix}/include directory out of the way.])
+-  else
+-    AC_MSG_RESULT(ok)
+-  fi
+-fi
+-
+ # We have inlined syscalls.
+ AC_DEFINE(HAVE_INLINED_SYSCALLS)
