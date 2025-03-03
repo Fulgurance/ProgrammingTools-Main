@@ -16,10 +16,4 @@ class Target < ISM::Software
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cbindgen")
     end
 
-    def install
-        super
-
-        runChmodCommand("0755 /usr/bin/cbindgen")
-    end
-
 end

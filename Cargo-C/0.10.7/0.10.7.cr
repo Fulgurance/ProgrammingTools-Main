@@ -27,13 +27,4 @@ class Target < ISM::Software
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}usr/bin/cargo-ctest")
     end
 
-    def install
-        super
-
-        runChmodCommand("0755 /usr/bin/cargo-capi")
-        runChmodCommand("0755 /usr/bin/cargo-cbuild")
-        runChmodCommand("0755 /usr/bin/cargo-cinstall")
-        runChmodCommand("0755 /usr/bin/cargo-ctest")
-    end
-
 end
