@@ -26,12 +26,4 @@ class Target < ISM::Software
                     "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/zsh/site-functions/_ninja")
     end
 
-    def install
-        super
-
-        runChmodCommand("0755 /usr/bin/ninja")
-        runChmodCommand("0644 /usr/share/bash-completion/completions/ninja")
-        runChmodCommand("0644 /usr/share/zsh/site-functions/_ninja")
-    end
-
 end
