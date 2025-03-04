@@ -182,16 +182,4 @@ class Target < ISM::Software
         end
     end
 
-    def install
-        super
-
-        if !passEnabled
-
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include")
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include-fixed")
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include")
-            runChownCommand("-R root:root /usr/lib/gcc/#{Ism.settings.systemTarget}/#{version}/include-fixed")
-        end
-    end
-
 end
