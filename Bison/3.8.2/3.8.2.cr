@@ -4,8 +4,6 @@ class Target < ISM::Software
         super
 
         configureSource(arguments:  "--prefix=/usr                          \
-                                    --build=#{Ism.settings.chrootTarget}    \
-                                    --host=#{Ism.settings.chrootTarget}     \
                                     --disable-doc",
                         path:       buildDirectoryPath)
     end
