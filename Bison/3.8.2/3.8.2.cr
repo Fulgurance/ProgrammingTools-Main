@@ -3,8 +3,10 @@ class Target < ISM::Software
     def configure
         super
 
-        configureSource(arguments:  "--prefix=/usr  \
-                                    --docdir=/usr/share/doc/#{versionName}",
+        configureSource(arguments:  "--prefix=/usr                          \
+                                    --build=#{Ism.settings.chrootTarget}    \
+                                    --host=#{Ism.settings.chrootTarget}     \
+                                    --disable-doc",
                         path:       buildDirectoryPath)
     end
     
