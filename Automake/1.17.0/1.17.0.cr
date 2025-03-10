@@ -4,7 +4,7 @@ class Target < ISM::Software
         super
 
         configureSource(arguments:  "--prefix=/usr  \
-                                    --docdir=/usr/share/doc/#{versionName}",
+                                    --disable-doc",
                         path:       buildDirectoryPath)
     end
 
