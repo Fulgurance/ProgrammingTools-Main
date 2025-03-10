@@ -5,7 +5,7 @@ class Target < ISM::Software
 
         configureSource(arguments:  "--prefix=/usr      \
                                     --disable-static    \
-                                    --docdir=/usr/share/doc/#{versionName}",
+                                    --disable-doc",
                         path:       buildDirectoryPath)
     end
 

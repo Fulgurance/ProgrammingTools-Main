@@ -10,7 +10,7 @@ class Target < ISM::Software
                                     --no-system-cppdap                  \
                                     --no-system-librhash                \
                                     #{option("Qtbase") ? "--qt-gui" : ""}   \
-                                    --docdir=/share/doc/#{versionName}",
+                                    --disable-doc",
                         path:       buildDirectoryPath)
     end
 

@@ -6,7 +6,7 @@ class Target < ISM::Software
         configureSource(arguments:  "--prefix=/usr      \
                                     --enable-cplusplus  \
                                     --disable-static    \
-                                    --docdir=/usr/share/doc/#{versionName}",
+                                    --disable-doc",
                         path:       buildDirectoryPath)
     end
     
