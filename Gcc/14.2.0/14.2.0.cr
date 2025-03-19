@@ -66,7 +66,7 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource(arguments:  "--target=#{Ism.settings.chrootTarget}                                                                  \
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
-                                        --with-glibc-version=#{softwareMinorVersion(glibcSoftwareName)}.#{softwareMinorVersion(glibcSoftwareName)}                                                                               \
+                                        --with-glibc-version=2.38                                                                               \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
                                         --with-newlib                                                                                           \
                                         --without-headers                                                                                       \
