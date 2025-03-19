@@ -69,6 +69,9 @@ class Target < ISM::Software
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
                                         --with-glibc-version=#{glibcVersion}                                                                    \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
+                                        --with-mpc=#{mainWorkDirectoryPath}/mpc                                                                 \
+                                        --with-mpfr=#{mainWorkDirectoryPath}/mpfr                                                               \
+                                        --with-gmp=#{mainWorkDirectoryPath}/gmp                                                                 \
                                         --with-newlib                                                                                           \
                                         --without-headers                                                                                       \
                                         --enable-default-pie                                                                                    \
@@ -76,7 +79,6 @@ class Target < ISM::Software
                                         --disable-nls                                                                                           \
                                         --disable-shared                                                                                        \
                                         #{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"} \
-                                        --disable-isl                                                                                           \
                                         --disable-threads                                                                                       \
                                         --disable-libatomic                                                                                     \
                                         --disable-libgomp                                                                                       \
@@ -103,6 +105,9 @@ class Target < ISM::Software
                                         LDFLAGS_FOR_TARGET=-L#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc                          \
                                         --prefix=/usr                                                                                           \
                                         --with-build-sysroot=#{Ism.settings.rootPath}                                                           \
+                                        --with-mpc=#{mainWorkDirectoryPath}/mpc                                                                 \
+                                        --with-mpfr=#{mainWorkDirectoryPath}/mpfr                                                               \
+                                        --with-gmp=#{mainWorkDirectoryPath}/gmp                                                                 \
                                         --enable-default-pie                                                                                    \
                                         --enable-default-ssp                                                                                    \
                                         --disable-nls                                                                                           \
