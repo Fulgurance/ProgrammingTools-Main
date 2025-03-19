@@ -76,6 +76,7 @@ class Target < ISM::Software
                                         --disable-nls                                                                                           \
                                         --disable-shared                                                                                        \
                                         #{option("Multilib") ? "--enable-multilib --with-multilib-list=#{multilibList}" : "--disable-multilib"} \
+                                        --disable-isl                                                                                           \
                                         --disable-threads                                                                                       \
                                         --disable-libatomic                                                                                     \
                                         --disable-libgomp                                                                                       \
