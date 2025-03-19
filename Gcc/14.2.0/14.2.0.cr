@@ -4,17 +4,6 @@ class Target < ISM::Software
         @buildDirectory = true
         super
 
-        if option("Pass1") || option("Pass3")
-            moveFile(   "#{workDirectoryPath}/Mpfr-4.2.1",
-                        "#{mainWorkDirectoryPath}/mpfr")
-
-            moveFile(   "#{workDirectoryPath}/Gmp-6.3.0",
-                        "#{mainWorkDirectoryPath}/gmp")
-
-            moveFile(   "#{workDirectoryPath}/Mpc-1.3.1",
-                        "#{mainWorkDirectoryPath}/mpc")
-        end
-
         if architecture("x86_64")
             if option("Pass1") || option("Pass3")
                 if option("32Bits")
@@ -69,9 +58,6 @@ class Target < ISM::Software
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
                                         --with-glibc-version=#{glibcVersion}                                                                    \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
-                                        --with-mpc=#{mainWorkDirectoryPath}/mpc                                                                 \
-                                        --with-mpfr=#{mainWorkDirectoryPath}/mpfr                                                               \
-                                        --with-gmp=#{mainWorkDirectoryPath}/gmp                                                                 \
                                         --with-newlib                                                                                           \
                                         --without-headers                                                                                       \
                                         --enable-default-pie                                                                                    \
@@ -105,9 +91,6 @@ class Target < ISM::Software
                                         LDFLAGS_FOR_TARGET=-L#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc                          \
                                         --prefix=/usr                                                                                           \
                                         --with-build-sysroot=#{Ism.settings.rootPath}                                                           \
-                                        --with-mpc=#{mainWorkDirectoryPath}/mpc                                                                 \
-                                        --with-mpfr=#{mainWorkDirectoryPath}/mpfr                                                               \
-                                        --with-gmp=#{mainWorkDirectoryPath}/gmp                                                                 \
                                         --enable-default-pie                                                                                    \
                                         --enable-default-ssp                                                                                    \
                                         --disable-nls                                                                                           \
