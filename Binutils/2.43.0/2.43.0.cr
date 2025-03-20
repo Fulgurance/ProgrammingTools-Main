@@ -22,6 +22,8 @@ class Target < ISM::Software
                                         --disable-nls                           \
                                         --enable-gprofng=no                     \
                                         --disable-werror                        \
+                                        --enable-new-dtags                      \
+                                        --enable-default-hash-style=gnu         \
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         elsif option("Pass2")
@@ -33,18 +35,22 @@ class Target < ISM::Software
                                         --enable-gprofng=no                 \
                                         --disable-werror                    \
                                         --enable-64-bit-bfd                 \
+                                        --enable-new-dtags                  \
+                                        --enable-default-hash-style=gnu     \
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         else
-            configureSource(arguments:  "--prefix=/usr      \
-                                        --sysconfdir=/etc   \
-                                        --enable-gold       \
-                                        --enable-ld=default \
-                                        --enable-plugins    \
-                                        --enable-shared     \
-                                        --disable-werror    \
-                                        --enable-64-bit-bfd \
-                                        --with-system-zlib  \
+            configureSource(arguments:  "--prefix=/usr                  \
+                                        --sysconfdir=/etc               \
+                                        --enable-gold                   \
+                                        --enable-ld=default             \
+                                        --enable-plugins                \
+                                        --enable-shared                 \
+                                        --disable-werror                \
+                                        --enable-64-bit-bfd             \
+                                        --with-system-zlib              \
+                                        --enable-new-dtags              \
+                                        --enable-default-hash-style=gnu \
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         end
