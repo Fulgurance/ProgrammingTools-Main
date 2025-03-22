@@ -1,8 +1,29 @@
 class Target < ISM::Software
 
+    def downloadAdditions(links: [  dependency("@BaseLibraries-Main:Mpfr").sourcesLink,
+                                    dependency("@BaseLibraries-Main:Gmp").sourcesLink,
+                                    dependency("@BaseLibraries-Main:Mpc").sourcesLink])
+        super
+    end
+
     def prepare
         @buildDirectory = true
         super
+
+        if option("Pass1") || option("Pass3")
+            mpfrVersion = "#{softwareVersion("@BaseLibraries-Main:Mpfr")}"
+            gmpVersion = "#{softwareVersion("@BaseLibraries-Main:Gmp")}"
+            mpcVersion = "#{softwareVersion("@BaseLibraries-Main:Mpc")}"
+
+            moveFile(   "#{workDirectoryPath}/Mpfr-#{mpfrVersion}",
+                        "#{mainWorkDirectoryPath}/mpfr")
+
+            moveFile(   "#{workDirectoryPath}/Gmp-#{gmpVersion}",
+                        "#{mainWorkDirectoryPath}/gmp")
+
+            moveFile(   "#{workDirectoryPath}/Mpc-#{mpcVersion}",
+                        "#{mainWorkDirectoryPath}/mpc")
+        end
 
         if architecture("x86_64")
             if option("Pass1") || option("Pass3")
