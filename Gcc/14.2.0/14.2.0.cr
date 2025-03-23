@@ -1,8 +1,9 @@
 class Target < ISM::Software
 
-    def downloadAdditions(links:    [dependency("@BaseLibraries-Main:Mpfr").sourcesLink,
-                                    dependency("@BaseLibraries-Main:Gmp").sourcesLink,
-                                    dependency("@BaseLibraries-Main:Mpc").sourcesLink])
+    def downloadAdditions
+        @additions = [  dependency("@BaseLibraries-Main:Mpfr").sourcesLink,
+                        dependency("@BaseLibraries-Main:Gmp").sourcesLink,
+                        dependency("@BaseLibraries-Main:Mpc").sourcesLink]
         super
     end
 
