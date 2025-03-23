@@ -1,13 +1,13 @@
 class Target < ISM::Software
 
-    def downloadAdditions
+    def initialize
+        super
+
         if option("Pass1") || option("Pass3")
             @additions = [  dependency("@BaseLibraries-Main:Mpfr").sourcesLink,
                             dependency("@BaseLibraries-Main:Gmp").sourcesLink,
                             dependency("@BaseLibraries-Main:Mpc").sourcesLink]
         end
-
-        super
     end
 
     def prepare
