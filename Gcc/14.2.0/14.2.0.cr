@@ -1,6 +1,6 @@
 class Target < ISM::Software
 
-    def initialize
+    def setup
         super
 
         if option("Pass1") || option("Pass3")
