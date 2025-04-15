@@ -42,7 +42,7 @@
       "active": false,
       "dependencies": [
         {
-          "port": "SystemBase-Main",
+          "port": "Components-Main",
           "name": "Kernel",
           "version": ">=0.0.0",
           "options": []
