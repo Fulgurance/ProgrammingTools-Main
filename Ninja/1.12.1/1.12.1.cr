@@ -4,7 +4,8 @@ class Target < ISM::Software
         super
 
         runPythonCommand(   arguments:  "configure.py --bootstrap",
-                            path:       buildDirectoryPath)
+                            path:       buildDirectoryPath,
+                            environment:    {"PYTHON" => "python3.12"})
     end
     
     def prepareInstallation
