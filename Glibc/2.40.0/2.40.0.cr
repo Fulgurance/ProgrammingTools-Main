@@ -18,7 +18,7 @@ class Target < ISM::Software
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --host=#{Ism.settings.chrootTarget}                                     \
                                         --build=$(../scripts/config.guess)                                      \
-                                        --enable-kernel=4.19                                                    \
+                                        --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \
@@ -27,7 +27,7 @@ class Target < ISM::Software
         else
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --disable-werror                                                        \
-                                        --enable-kernel=4.19                                                    \
+                                        --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --enable-stack-protector=strong                                         \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \
