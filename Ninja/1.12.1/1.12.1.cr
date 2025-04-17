@@ -3,9 +3,11 @@ class Target < ISM::Software
     def build
         super
 
-        runPythonCommand(   arguments:  "configure.py --bootstrap",
-                            path:       buildDirectoryPath,
-                            version:    "3.12")
+        runCmakeCommand(arguments:  "-B build-cmake",
+                        path:       buildDirectoryPath)
+
+        runCmakeCommand(arguments:  "--build build-cmake",
+                        path:       buildDirectoryPath)
     end
     
     def prepareInstallation

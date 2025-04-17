@@ -9,9 +9,9 @@
   "dependencies": [
     {
       "port": "ProgrammingTools-Main",
-      "name": "Setuptools",
-      "version": ">=75.3.0",
-      "options": ["Python-3.12"]
+      "name": "Cmake",
+      "version": ">=3.27.2",
+      "options": []
     }
   ],
   "kernelDependencies": [],
