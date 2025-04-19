@@ -18,7 +18,6 @@ class Target < ISM::Software
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --host=#{Ism.settings.chrootTarget}                                     \
                                         --build=$(../scripts/config.guess)                                      \
-                                        --disable-werror                                                        \
                                         --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
