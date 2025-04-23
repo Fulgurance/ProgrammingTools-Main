@@ -55,7 +55,7 @@ class Target < ISM::Software
 
             generateEmptyFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/ld.so.conf")
 
-            fileReplaceText(path:       "#{mainWorkDirectoryPath}Makefile",
+            fileReplaceText(path:       "#{mainWorkDirectoryPath}/Makefile",
                             text:       "$(PERL)",
                             newText:    "echo not running")
         end
