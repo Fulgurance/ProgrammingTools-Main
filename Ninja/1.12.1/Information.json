@@ -8,10 +8,10 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "port": "ProgrammingTools-Main",
-      "name": "Setuptools",
-      "version": ">=75.3.0",
-      "options": ["Python-3.12"]
+      "port": "ProgrammingLanguages-Main",
+      "name": "Python",
+      "version": ">=3.12.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],
