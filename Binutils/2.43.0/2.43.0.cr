@@ -28,7 +28,7 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         elsif option("Pass2")
             configureSource(arguments:  "--prefix=/usr                          \
-                                        --build=#{Ism.settings.chrootTarget}    \
+                                        --build=#{Ism.settings.systemTarget}    \
                                         --host=#{Ism.settings.chrootTarget}     \
                                         --disable-nls                           \
                                         --enable-shared                         \
