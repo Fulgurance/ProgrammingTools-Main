@@ -14,12 +14,6 @@
       "options": ["Pass3"]
     },
     {
-      "port": "ProgrammingTools-Main",
-      "name": "Ninja",
-      "version": ">=1.11.1",
-      "options": []
-    },
-    {
       "port": "ProgrammingLanguages-Main",
       "name": "Python",
       "version": ">=3.11.4",
