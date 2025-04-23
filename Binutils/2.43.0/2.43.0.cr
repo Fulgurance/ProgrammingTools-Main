@@ -46,6 +46,7 @@ class Target < ISM::Software
                                         --enable-ld=default             \
                                         --enable-plugins                \
                                         --enable-shared                 \
+                                        --enable-gprofng=no             \
                                         --disable-werror                \
                                         --enable-64-bit-bfd             \
                                         --with-system-zlib              \
