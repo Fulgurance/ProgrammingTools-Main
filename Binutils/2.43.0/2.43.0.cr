@@ -27,16 +27,16 @@ class Target < ISM::Software
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         elsif option("Pass2")
-            configureSource(arguments:  "--prefix=/usr                      \
-                                        --build=$(../config.guess)          \
-                                        --host=#{Ism.settings.chrootTarget} \
-                                        --disable-nls                       \
-                                        --enable-shared                     \
-                                        --enable-gprofng=no                 \
-                                        --disable-werror                    \
-                                        --enable-64-bit-bfd                 \
-                                        --enable-new-dtags                  \
-                                        --enable-default-hash-style=gnu     \
+            configureSource(arguments:  "--prefix=/usr                          \
+                                        --build=#{Ism.settings.chrootTarget}    \
+                                        --host=#{Ism.settings.chrootTarget}     \
+                                        --disable-nls                           \
+                                        --enable-shared                         \
+                                        --enable-gprofng=no                     \
+                                        --disable-werror                        \
+                                        --enable-64-bit-bfd                     \
+                                        --enable-new-dtags                      \
+                                        --enable-default-hash-style=gnu         \
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         else
