@@ -1,14 +1,25 @@
 class Target < ISM::Software
     
-    def build
+    def configure
         super
 
         runPythonCommand(   arguments:  "configure.py",
                             path:       buildDirectoryPath)
     end
+
+    def build
+        super
+
+        runCmakeCommand(arguments:      "--build #{buildDirectoryPath}",
+                        path:           mainWorkDirectoryPath)
+    end
     
     def prepareInstallation
         super
+
+        runCmakeCommand(arguments:      "--install #{buildDirectoryPath}",
+                        path:           mainWorkDirectoryPath,
+                        environment:    {"DESTDIR" => "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}"})
 
         makeDirectory("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/bin/")
 
