@@ -17,8 +17,8 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --host=#{Ism.settings.chrootTarget}                                     \
-                                        --build=#{Ism.settings.systemTarget}                                    \
-                                        --enable-kernel=4.19                                                    \
+                                        --build=$(../scripts/config.guess)                                      \
+                                        --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \
@@ -27,7 +27,7 @@ class Target < ISM::Software
         else
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --disable-werror                                                        \
-                                        --enable-kernel=4.19                                                    \
+                                        --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --enable-stack-protector=strong                                         \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \

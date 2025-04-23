@@ -101,7 +101,7 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         elsif option("Pass2")
             configureSource(arguments:          "--host=#{Ism.settings.chrootTarget}                                \
-                                                --build=#{Ism.settings.systemTarget}                                \
+                                                --build=$(../config.guess)                                          \
                                                 --prefix=#{Ism.settings.rootPath}/usr                               \
                                                 #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}  \
                                                 --disable-nls                                                       \
@@ -110,7 +110,7 @@ class Target < ISM::Software
                             path:               buildDirectoryPath,
                             configureDirectory: "libstdc++-v3")
         elsif option("Pass3")
-            configureSource(arguments:  "--build=#{Ism.settings.systemTarget}                                                                   \
+            configureSource(arguments:  "--build=$(../config.guess)                                                                             \
                                         --host=#{Ism.settings.chrootTarget}                                                                     \
                                         --target=#{Ism.settings.chrootTarget}                                                                   \
                                         LDFLAGS_FOR_TARGET=-L#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc                          \
@@ -130,7 +130,7 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                                                                                          \
-                                        --build=#{Ism.settings.systemTarget}                                                                    \
+                                        --build=$(../config.guess)                                                                              \
                                         LD=ld                                                                                                   \
                                         --enable-languages=c,c++                                                                                \
                                         --enable-default-pie                                                                                    \
