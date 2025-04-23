@@ -8,7 +8,7 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "port": "BaseLibraries-Main",
+      "port": "Utilities-Main",
       "name": "Setuptools",
       "version": ">=75.3.0",
       "options": ["Python-3.12"]
