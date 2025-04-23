@@ -12,6 +12,12 @@
       "name": "SystemBase",
       "version": ">=0.2.0",
       "options": ["Pass2"]
+    },
+    {
+      "port": "ProgrammingLanguages-Main",
+      "name": "Perl",
+      "version": ">=5.40.0",
+      "options": []
     }
   ],
   "kernelDependencies": [],
