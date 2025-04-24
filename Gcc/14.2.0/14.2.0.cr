@@ -75,13 +75,10 @@ class Target < ISM::Software
             end
         end
 
-        glibcSoftwareName = "@ProgrammingTools-Main:Glibc"
-        glibcVersion = "#{softwareMajorVersion(glibcSoftwareName)}.#{softwareMinorVersion(glibcSoftwareName)}"
-
         if option("Pass1")
             configureSource(arguments:  "--target=#{Ism.settings.chrootTarget}                                                                  \
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
-                                        --with-glibc-version=#{glibcVersion}                                                                    \
+                                        --with-glibc-version=2.41                                                                    \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
                                         --with-newlib                                                                                           \
                                         --without-headers                                                                                       \
