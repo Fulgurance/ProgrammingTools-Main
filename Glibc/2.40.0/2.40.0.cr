@@ -30,6 +30,7 @@ class Target < ISM::Software
                                         --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --enable-stack-protector=strong                                         \
+                                        --with-headers=/usr/src/main-kernel-sources/usr/include                 \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \
                                         libc_cv_slibdir=/usr/lib",
                             path:       buildDirectoryPath)
