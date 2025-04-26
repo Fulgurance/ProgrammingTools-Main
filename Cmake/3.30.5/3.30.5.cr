@@ -9,8 +9,7 @@ class Target < ISM::Software
                                     --no-system-jsoncpp                 \
                                     --no-system-cppdap                  \
                                     --no-system-librhash                \
-                                    #{option("Qtbase") ? "--qt-gui" : ""}   \
-                                    --disable-doc",
+                                    #{option("Qtbase") ? "--qt-gui" : ""}",
                         path:       buildDirectoryPath)
     end
 
