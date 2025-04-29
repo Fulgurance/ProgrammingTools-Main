@@ -40,17 +40,20 @@ class Target < ISM::Software
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         else
-            configureSource(arguments:  "--prefix=/usr                  \
-                                        --sysconfdir=/etc               \
-                                        --enable-gold                   \
-                                        --enable-ld=default             \
-                                        --enable-plugins                \
-                                        --enable-shared                 \
-                                        --disable-werror                \
-                                        --enable-64-bit-bfd             \
-                                        --with-system-zlib              \
-                                        --enable-new-dtags              \
-                                        --enable-default-hash-style=gnu \
+            configureSource(arguments:  "--prefix=/usr                          \
+                                        --host=#{Ism.settings.systemTarget}     \
+                                        --build=#{Ism.settings.systemTarget}    \
+                                        --target=#{Ism.settings.systemTarget}   \
+                                        --sysconfdir=/etc                       \
+                                        --enable-gold                           \
+                                        --enable-ld=default                     \
+                                        --enable-plugins                        \
+                                        --enable-shared                         \
+                                        --disable-werror                        \
+                                        --enable-64-bit-bfd                     \
+                                        --with-system-zlib                      \
+                                        --enable-new-dtags                      \
+                                        --enable-default-hash-style=gnu         \
                                         #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}",
                             path:       buildDirectoryPath)
         end

@@ -130,6 +130,9 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                                                                                          \
+                                        --host=#{Ism.settings.systemTarget}                                                                     \
+                                        --build=#{Ism.settings.systemTarget}                                                                    \
+                                        --target=#{Ism.settings.systemTarget}                                                                   \
                                         --build=$(../config.guess)                                                                              \
                                         LD=ld                                                                                                   \
                                         --enable-languages=c,c++                                                                                \
