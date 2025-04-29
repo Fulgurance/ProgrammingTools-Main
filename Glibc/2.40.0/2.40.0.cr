@@ -29,7 +29,6 @@ class Target < ISM::Software
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --disable-werror                                                        \
                                         --enable-kernel=5.4                                                     \
-                                        --enable-fortify-sources                                                \
                                         --disable-nscd                                                          \
                                         --enable-stack-protector=strong                                         \
                                         --with-headers=/usr/src/main-kernel-sources/usr/include                 \
