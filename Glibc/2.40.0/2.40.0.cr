@@ -23,8 +23,7 @@ class Target < ISM::Software
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
                                         #{option("32Bits") || option("x32Bits") ? "--enable-multi-arch" : ""}   \
                                         libc_cv_slibdir=/usr/lib",
-                            path:       buildDirectoryPath,
-                            environment: {"CFLAGS" => "-02 -U_FORTIFY_SOURCE -fno-stack-protector"})
+                            path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --disable-werror                                                        \
