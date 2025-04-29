@@ -19,6 +19,7 @@ class Target < ISM::Software
                                         --host=#{Ism.settings.chrootTarget}                                     \
                                         --build=$(../scripts/config.guess)                                      \
                                         --enable-kernel=5.4                                                     \
+                                        --disable-werror                                                        \
                                         --enable-fortify-sources                                                \
                                         --disable-nscd                                                          \
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
