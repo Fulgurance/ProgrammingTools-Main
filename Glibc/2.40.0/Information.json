@@ -8,15 +8,9 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "port": "ProgrammingLanguages-Main",
-      "name": "Python",
-      "version": ">=3.11.4",
-      "options": []
-    },
-    {
-      "port": "ProgrammingTools-Main",
-      "name": "Bison",
-      "version": ">=3.8.2",
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
       "options": []
     }
   ],
