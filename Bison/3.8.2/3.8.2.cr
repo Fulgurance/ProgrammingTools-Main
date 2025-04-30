@@ -4,9 +4,6 @@ class Target < ISM::Software
         super
 
         configureSource(arguments:  "--prefix=/usr                          \
-                                    --host=#{Ism.settings.systemTarget}     \
-                                    --build=#{Ism.settings.systemTarget}    \
-                                    --target=#{Ism.settings.systemTarget}   \
                                     --disable-doc",
                         path:       buildDirectoryPath)
     end
