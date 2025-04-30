@@ -26,9 +26,6 @@ class Target < ISM::Software
                             path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                                                          \
-                                        --host=#{Ism.settings.systemTarget}                                     \
-                                        --build=#{Ism.settings.systemTarget}                                    \
-                                        --target=#{Ism.settings.systemTarget}                                   \
                                         --disable-werror                                                        \
                                         --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
