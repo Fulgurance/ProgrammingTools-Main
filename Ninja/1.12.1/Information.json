@@ -12,12 +12,6 @@
       "name": "Python",
       "version": ">=3.12.0",
       "options": []
-    },
-    {
-      "port": "ProgrammingTools-Main",
-      "name": "Cmake",
-      "version": ">=3.27.0",
-      "options": []
     }
   ],
   "kernelDependencies": [],
