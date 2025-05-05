@@ -17,7 +17,7 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource(arguments:  "--prefix=/usr                                                          \
                                         --host=#{Ism.settings.chrootTarget}                                     \
-                                        --build=#{Ism.settings.systemTarget(relatedToChroot: false)}            \
+                                        --build=$(../scripts/config.guess)                                      \
                                         --enable-kernel=5.4                                                     \
                                         --disable-nscd                                                          \
                                         --with-headers=#{Ism.settings.rootPath}/usr/include                     \
