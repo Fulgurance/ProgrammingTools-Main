@@ -8,6 +8,18 @@
   "installedFiles": [],
   "dependencies": [
     {
+      "port": "ProgrammingTools-Main",
+      "name": "Binutils",
+      "version": ">=2.43.0",
+      "options": []
+    },
+    {
+      "port": "ProgrammingTools-Main",
+      "name": "Glibc",
+      "version": ">=2.40.0",
+      "options": []
+    },
+    {
       "port": "BaseLibraries-Main",
       "name": "Gmp",
       "version": ">=6.3.0",
@@ -26,15 +38,15 @@
       "options": []
     },
     {
-      "port": "Archivers-Main",
-      "name": "Zstd",
-      "version": ">=1.5.5",
+      "port": "Utilities-Main",
+      "name": "M4",
+      "version": ">=1.4.19",
       "options": []
     },
     {
-      "port": "BaseLibraries-Main",
-      "name": "Zlib",
-      "version": ">=1.2.13",
+      "port": "Archivers-Main",
+      "name": "Zstd",
+      "version": ">=1.5.5",
       "options": []
     }
   ],
