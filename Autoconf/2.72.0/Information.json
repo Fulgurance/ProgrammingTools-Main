@@ -8,10 +8,10 @@
   "installedFiles": [],
   "dependencies": [
     {
-      "port": "ProgrammingLanguages-Main",
-      "name": "Perl",
-      "version": ">=5.40.0",
-      "options": []
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": ["Pass3"]
     }
   ],
   "kernelDependencies": [],
