@@ -54,12 +54,6 @@
       "name": "Sed",
       "version": ">=4.9.0",
       "options": []
-    },
-    {
-      "port": "Utilities-Main",
-      "name": "Texinfo",
-      "version": ">=8.6.13",
-      "options": []
     }
   ],
   "kernelDependencies": [],
