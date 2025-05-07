@@ -24,6 +24,12 @@
       "name": "Nghttp2",
       "version": ">=1.55.1",
       "options": []
+    },
+    {
+      "port": "NetworkingLibraries-Main",
+      "name": "Curl",
+      "version": ">=8.2.1",
+      "options": []
     }
   ],
   "kernelDependencies": [],
