@@ -3,7 +3,7 @@ class Target < ISM::Software
     def configure
         super
 
-        runPythonCommand(   arguments:  "configure.py --verbose",
+        runPythonCommand(   arguments:  "configure.py --bootstrap --verbose",
                             path:       buildDirectoryPath)
     end
     
