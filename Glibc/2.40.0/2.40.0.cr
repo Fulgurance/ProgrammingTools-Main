@@ -96,8 +96,10 @@ class Target < ISM::Software
 
     def deploy
         super
-        #Install a fallback language by default
-        runLocaledefCommand("-i C -f UTF-8 C.UTF-8")
+        if !passEnabled
+            #Install a fallback language by default
+            runLocaledefCommand("-i C -f UTF-8 C.UTF-8")
+        end
     end
 
 end
