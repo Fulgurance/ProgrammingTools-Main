@@ -26,4 +26,14 @@ class Target < ISM::Software
                     "#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/usr/share/zsh/site-functions/_ninja")
     end
 
+    def deploy
+        super
+
+        runChownCommand("root:root /usr/share/bash-completion/completions/ninja")
+        runChownCommand("root:root /usr/share/zsh/site-functions/_ninja")
+
+        runChmodCommand("0644 /usr/share/bash-completion/completions/ninja")
+        runChmodCommand("0644 /usr/share/zsh/site-functions/_ninja")
+    end
+
 end
