@@ -4,6 +4,7 @@ class Target < ISM::Software
         super
 
         configureSource(arguments:  "--prefix=/usr                                  \
+                                    --with-stdc++lib=dynamic                        \
                                     --with-boot-jdk=../OpenJdk-Binaries-#{version}  \
                                     --disable-ccache                                \
                                     --disable-precompiled-headers                   \
