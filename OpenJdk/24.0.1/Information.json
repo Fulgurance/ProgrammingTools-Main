@@ -1,0 +1,23 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "OpenJdk",
+  "version": "24.0.1",
+  "architectures": ["x86_64"],
+  "description": "Open-source implementation of the Java Platform",
+  "website": "https://openjdk.org/",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}
