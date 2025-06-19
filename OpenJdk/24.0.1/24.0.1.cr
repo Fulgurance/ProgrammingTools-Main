@@ -36,11 +36,11 @@ class Target < ISM::Software
         moveFile(   "#{buildDirectoryPath}/build/*/images/jdk",
                     "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt/jdk-#{version}")
 
-        if File.exists?("#{Ism.settings.rootPath}etc/profile.d/qt.sh")
-            copyFile(   "/etc/profile.d/qt.sh",
-                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/qt.sh")
+        if File.exists?("#{Ism.settings.rootPath}etc/profile.d/jdk.sh")
+            copyFile(   "/etc/profile.d/jdk.sh",
+                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/jdk.sh")
         else
-            generateEmptyFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/qt.sh")
+            generateEmptyFile("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/jdk.sh")
         end
 
         jdkData = <<-CODE
