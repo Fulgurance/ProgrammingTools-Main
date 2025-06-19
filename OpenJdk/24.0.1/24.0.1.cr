@@ -33,8 +33,8 @@ class Target < ISM::Software
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt")
 
-        moveDirectory(  "#{buildDirectoryPath}/build/*/images/jdk",
-                        "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt/jdk-#{version}")
+        moveFile(   "#{buildDirectoryPath}/build/*/images/jdk",
+                    "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt/jdk-#{version}")
 
         if File.exists?("#{Ism.settings.rootPath}etc/profile.d/qt.sh")
             copyFile(   "/etc/profile.d/qt.sh",
