@@ -36,7 +36,6 @@ class Target < ISM::Software
         moveDirectory(  "#{buildDirectoryPath}/build/*/images/jdk",
                         "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt/jdk-#{version}")
 
-        ###########################
         if File.exists?("#{Ism.settings.rootPath}etc/profile.d/qt.sh")
             copyFile(   "/etc/profile.d/qt.sh",
                         "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/qt.sh")
@@ -65,7 +64,10 @@ class Target < ISM::Software
         unset AUTO_CLASSPATH_DIR dir jar _JAVA_OPTIONS
         CODE
         fileUpdateContent("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}etc/profile.d/jdk.sh",jdkData)
-        ###########################
+
+        makeLink(   target: "/etc/pki/tls/java/cacerts",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/opt/jdk/lib/security/cacerts",
+                    type:   :symbolicLink)
 
         if isGreatestVersion
             makeLink(   target: "jdk-#{version}",
