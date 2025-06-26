@@ -7,6 +7,10 @@ class Target < ISM::Software
             @additions = [  dependency("@BaseLibraries-Main:Mpfr").sourcesLink,
                             dependency("@BaseLibraries-Main:Gmp").sourcesLink,
                             dependency("@BaseLibraries-Main:Mpc").sourcesLink]
+
+            @additionsPublicKeys = [dependency("@BaseLibraries-Main:Mpfr").sourcesPublicKeyLink,
+                                    dependency("@BaseLibraries-Main:Gmp").sourcesPublicKeyLink,
+                                    dependency("@BaseLibraries-Main:Mpc").sourcesPublicKeyLink]
         end
     end
 
