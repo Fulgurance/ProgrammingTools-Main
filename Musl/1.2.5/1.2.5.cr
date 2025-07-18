@@ -4,11 +4,11 @@ class Target < ISM::Software
         @buildDirectory = true
         super
 
-        # if option("Pass1")
-        #     makeLink(   target: "ld-linux-x86-64.so.2",
-        #                 path:   "#{Ism.settings.rootPath}/lib64/ld-lsb-x86-64.so.3",
-        #                 type:   :symbolicLinkByOverwrite)
-        # end
+        if option("Pass1")
+            makeLink(   target: "ld-musl-x86_64.so.1",
+                        path:   "#{Ism.settings.rootPath}/lib64/ld-lsb-x86-64.so.3",
+                        type:   :symbolicLinkByOverwrite)
+        end
     end
 
     def configure
