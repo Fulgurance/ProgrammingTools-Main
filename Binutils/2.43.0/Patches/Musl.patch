@@ -1,0 +1,41 @@
+diff --git a/gprofng/common/gp-defs.h b/gprofng/common/gp-defs.h
+index a1c1f050ab1..ddfa079212b 100644
+--- a/gprofng/common/gp-defs.h
++++ b/gprofng/common/gp-defs.h
+@@ -63,7 +63,13 @@
+ # endif
+ #endif
+
+-#if defined(__MUSL_LIBC)
++#if !defined(_WIN32) && !defined(__GLIBC__)
++#ifndef _LARGEFILE64_SOURCE
++#define _LARGEFILE64_SOURCE
++#endif
++#define fopen64 fopen
++#define fseeko64 fseeko
++#define ftello64 ftello
+ #define ino64_t ino_t
+ #define off64_t off_t
+ #define fpos64_t fpos_t
+diff --git a/gprofng/libcollector/iotrace.c b/gprofng/libcollector/iotrace.c
+index 18060864796..0e48d8c642f 100644
+--- a/gprofng/libcollector/iotrace.c
++++ b/gprofng/libcollector/iotrace.c
+@@ -3001,7 +3001,7 @@ DCL_FUNC_VER (DCL_FGETPOS64, fgetpos64_2_17, fgetpos64@GLIBC_2.17)
+ DCL_FUNC_VER (DCL_FGETPOS64, fgetpos64_2_2_5, fgetpos64@GLIBC_2.2.5)
+ DCL_FUNC_VER (DCL_FGETPOS64, fgetpos64_2_2, fgetpos64@GLIBC_2.2)
+ DCL_FUNC_VER (DCL_FGETPOS64, fgetpos64_2_1, fgetpos64@GLIBC_2.1)
+-#if !defined(__USE_LARGEFILE64)
++#if !defined(__USE_LARGEFILE64) && !defined(_LARGEFILE64_SOURCE)
+ DCL_FGETPOS64 (fgetpos64)
+ #endif
+ /*------------------------------------------------------------- fsetpos */
+@@ -3100,7 +3100,7 @@ DCL_FUNC_VER (DCL_FSETPOS64, fsetpos64_2_17, fsetpos64@GLIBC_2.17)
+ DCL_FUNC_VER (DCL_FSETPOS64, fsetpos64_2_2_5, fsetpos64@GLIBC_2.2.5)
+ DCL_FUNC_VER (DCL_FSETPOS64, fsetpos64_2_2, fsetpos64@GLIBC_2.2)
+ DCL_FUNC_VER (DCL_FSETPOS64, fsetpos64_2_1, fsetpos64@GLIBC_2.1)
+-#if !defined(__USE_LARGEFILE64)
++#if !defined(__USE_LARGEFILE64) && !defined(_LARGEFILE64_SOURCE)
+ DCL_FSETPOS64 (fsetpos64)
+ #endif
+ /*------------------------------------------------------------- fsync */
