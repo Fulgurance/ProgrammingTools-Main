@@ -15,6 +15,8 @@ class Target < ISM::Software
     def configure
         super
 
+        gprofng = "#{component("C-Library") == "Glibc" ? "yes" : "no"}"
+
         if option("Pass1")
             configureSource(arguments:  "--prefix=#{Ism.settings.toolsPath}     \
                                         --with-sysroot=#{Ism.settings.rootPath} \
@@ -46,6 +48,7 @@ class Target < ISM::Software
                                         --enable-ld=default                     \
                                         --enable-plugins                        \
                                         --enable-shared                         \
+                                        --enable-gprofng=#{gprofng}             \
                                         --disable-werror                        \
                                         --enable-64-bit-bfd                     \
                                         --with-system-zlib                      \
