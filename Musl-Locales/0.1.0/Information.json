@@ -1,6 +1,6 @@
 {
   "port": "ProgrammingTools-Main",
-  "name": "Musl-Locale",
+  "name": "Musl-Locales",
   "version": "0.1.0",
   "architectures": ["x86_64"],
   "description": "Locale program for musl libc",
