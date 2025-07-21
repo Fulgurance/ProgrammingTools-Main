@@ -1,6 +1,6 @@
 {
   "port": "ProgrammingTools-Main",
-  "name": "Musl-Fts",
+  "name": "Musl-Obstack",
   "version": "1.2.3",
   "architectures": ["x86_64"],
   "description": "A standalone library to implement GNU libc's obstack",
