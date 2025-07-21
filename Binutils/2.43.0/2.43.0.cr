@@ -15,7 +15,9 @@ class Target < ISM::Software
     def configure
         super
 
-        gprofng = "#{component("C-Library") == "Glibc" ? "yes" : "no"}"
+        usingGlibc = component("C-Library").uniqueDependencyIsEnabled("Glibc")
+
+        gprofng = (usingGlibc ? "yes" : "no")
 
         if option("Pass1")
             configureSource(arguments:  "--prefix=#{Ism.settings.toolsPath}     \
