@@ -1,0 +1,23 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Musl-Fts",
+  "version": "1.2.3",
+  "architectures": ["x86_64"],
+  "description": "A standalone library to implement GNU libc's obstack",
+  "website": "https://github.com/void-linux/musl-obstack",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}
