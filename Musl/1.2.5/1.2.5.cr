@@ -19,13 +19,13 @@ class Target < ISM::Software
                                         --host=#{Ism.settings.chrootTarget} \
                                         --disable-warnings                  \
                                         --enable-shared                     \
-                                        --disable-static",
+                                        --enable-static",
                             path:       buildDirectoryPath)
         else
             configureSource(arguments:  "--prefix=/usr                      \
                                         --disable-warnings                  \
                                         --enable-shared                     \
-                                        --disable-static",
+                                        --enable-static",
                             path:       buildDirectoryPath)
         end
     end
