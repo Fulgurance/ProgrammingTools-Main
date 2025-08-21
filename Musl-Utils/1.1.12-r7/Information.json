@@ -1,0 +1,23 @@
+{
+  "port": "ProgrammingTools-Main",
+  "name": "Musl-Utils",
+  "version": "1.1.12-r7",
+  "architectures": ["x86_64"],
+  "description": "Alpine Linux' getconf, getent and iconv implementations",
+  "website": "https://github.com/yaybondi/musl-utils",
+  "installedFiles": [],
+  "dependencies": [
+    {
+      "port": "SystemBase-Main",
+      "name": "SystemBase",
+      "version": ">=0.2.0",
+      "options": []
+    }
+  ],
+  "kernelDependencies": [],
+  "options": [],
+  "uniqueDependencies": [],
+  "uniqueOptions": [],
+  "selectedDependencies": [],
+  "allowCodependencies": []
+}
