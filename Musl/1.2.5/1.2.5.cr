@@ -43,7 +43,7 @@ class Target < ISM::Software
                     path:       buildDirectoryPath)
 
         makeLink(   target: "/lib64/ld-musl-x86_64.so.1",
-                    path:   "#{Ism.settings.rootPath}/usr/bin/ldd",
+                    path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
                     type:   :symbolicLinkByOverwrite)
     end
 
