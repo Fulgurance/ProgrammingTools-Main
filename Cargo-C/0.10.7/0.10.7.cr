@@ -3,10 +3,13 @@ class Target < ISM::Software
     def build
         super
 
+        usingGlibc = component("C-Library").uniqueDependencyIsEnabled("Glibc")
+
         runCargoCommand(arguments:  "build --release",
                         path:       buildDirectoryPath,
                         environment:    {   "LIBSSH2_SYS_USE_PKG_CONFIG" => "1",
-                                            "LIBSQLITE3_SYS_USE_PKG_CONFIG" => "1"})
+                                            "LIBSQLITE3_SYS_USE_PKG_CONFIG" => "1",
+                                            "RUSTFLAGS" => (usingGlibc ? "" : "-C target-feature=-crt-static")})
     end
     
     def prepareInstallation
