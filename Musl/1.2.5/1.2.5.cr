@@ -48,13 +48,13 @@ class Target < ISM::Software
                     path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
                     type:   :symbolicLinkByOverwrite)
 
-        ldsoData = <<-CODE
+        ldData = <<-CODE
         /lib
         /lib64
         /usr/lib
         /usr/lib64
         CODE
-        fileWriteData("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/etc/ld-musl-x86_64.path",ldsoData)
+        fileWriteData("#{builtSoftwareDirectoryPath}/#{Ism.settings.rootPath}/etc/ld-musl-x86_64.path",ldData)
     end
 
 end
