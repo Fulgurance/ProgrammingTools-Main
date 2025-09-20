@@ -43,6 +43,7 @@ class Target < ISM::Software
                     path:       buildDirectoryPath)
 
         makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin")
+        makeDirectory("#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/etc")
 
         makeLink(   target: "/lib64/ld-musl-x86_64.so.1",
                     path:   "#{builtSoftwareDirectoryPath}#{Ism.settings.rootPath}/usr/bin/ldd",
