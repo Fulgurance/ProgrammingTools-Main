@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Ninja
+VERSION
+    1.12.1
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Small build system with a focus on speed
+WEBSITE
+    https://ninja-build.org/
+DEPENDENCIES
+        @ProgrammingLanguages-Main:Python>=3.12.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

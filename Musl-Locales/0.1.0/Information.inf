@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Musl-Locales
+VERSION
+    0.1.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Locale program for musl libc
+WEBSITE
+    https://git.adelielinux.org/adelie/musl-locales
+DEPENDENCIES
+        @ProgrammingTools-Main:Cmake>=3.27.2
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

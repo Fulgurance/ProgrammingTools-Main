@@ -1,0 +1,40 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Glibc
+VERSION
+    2.40.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    The GNU C Library project
+WEBSITE
+    https://www.gnu.org/software/libc/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0(Pass3)
+KERNELDEPENDENCIES
+OPTIONS
+    name: 32Bits
+    description: Enable 32 bits support
+    active: false
+    dependencies:
+    kernelDependencies:
+        CONFIG_IA32_EMULATION
+
+    name: x32Bits
+    description: Enable x32 bits support
+    active: false
+    dependencies:
+    kernelDependencies:
+        CONFIG_X86_X32
+
+    name: Pass1
+    description: Enable the phase 1 of the cross toolchain building
+    active: false
+    dependencies:
+        @Components-Main:Kernel-Sources>=0.0.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

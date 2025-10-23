@@ -1,0 +1,33 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Gdb
+VERSION
+    13.2.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    The GNU Project debugger
+WEBSITE
+    https://sourceware.org/gdb
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+    name: Six
+    description: Enable six support
+    active: true
+    dependencies:
+        @BaseLibraries-Main:Six>=1.16.0
+    kernelDependencies:
+
+    name: Valgrind
+    description: Enable valgrind support
+    active: false
+    dependencies:
+        @Utilities-Main:Valgrind>=3.21.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

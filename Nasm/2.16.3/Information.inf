@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Nasm
+VERSION
+    2.16.3
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Netwide Assembler for the x86 CPU architecture portable to nearly every modern platform
+WEBSITE
+    https://nasm.us/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Extra-Cmake-Modules
+VERSION
+    5.109.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Extra modules and scripts for CMake
+WEBSITE
+    https://invent.kde.org/frameworks/extra-cmake-modules
+DEPENDENCIES
+        @ProgrammingTools-Main:Cmake>=3.27.2
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

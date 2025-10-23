@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Cbindgen
+VERSION
+    0.27.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    A project for generating C bindings from Rust code
+WEBSITE
+    https://github.com/eqrion/cbindgen
+DEPENDENCIES
+        @ProgrammingLanguages-Main:Rust>=1.71.1
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

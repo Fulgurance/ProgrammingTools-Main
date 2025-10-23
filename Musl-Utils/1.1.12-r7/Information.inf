@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Musl-Utils
+VERSION
+    1.1.12-r7
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Alpine Linux' getconf, getent and iconv implementations
+WEBSITE
+    https://github.com/yaybondi/musl-utils
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

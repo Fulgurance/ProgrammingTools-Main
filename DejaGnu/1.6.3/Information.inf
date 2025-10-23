@@ -1,0 +1,20 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    DejaGnu
+VERSION
+    1.6.3
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    DejaGnu framework for testing other programs
+WEBSITE
+    https://www.gnu.org/software/dejagnu/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+        @Utilities-Main:Expect>=5.45.4
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

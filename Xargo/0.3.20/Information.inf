@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Xargo
+VERSION
+    0.3.20
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    The sysroot manager that lets you build and customize std
+WEBSITE
+    https://github.com/japaric/xargo
+DEPENDENCIES
+        @ProgrammingLanguages-Main:Rust>=1.71.1
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

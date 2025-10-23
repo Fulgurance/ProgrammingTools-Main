@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Autoconf
+VERSION
+    2.72.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Extensible package of M4 macros that produce shell scripts to automatically configure software source code packages
+WEBSITE
+    https://www.gnu.org/software/autoconf/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0(Pass3)
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

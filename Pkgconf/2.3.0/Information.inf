@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Pkgconf
+VERSION
+    2.3.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Program which helps to configure compiler and linker flags for development frameworks
+WEBSITE
+    http://pkgconf.org/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0(Pass3)
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

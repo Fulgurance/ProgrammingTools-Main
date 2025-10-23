@@ -1,0 +1,66 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Gcc
+VERSION
+    14.2.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    The GNU Compiler Collection
+WEBSITE
+    https://gcc.gnu.org/
+DEPENDENCIES
+        @ProgrammingTools-Main:Binutils>=2.43.0
+        @Components-Main:C-Library>=0.2.0
+        @BaseLibraries-Main:Gmp>=6.3.0
+        @BaseLibraries-Main:Mpc>=1.3.1
+        @BaseLibraries-Main:Mpfr>=4.2.0
+        @Utilities-Main:M4>=1.4.19
+        @Archivers-Main:Zstd>=1.5.5
+KERNELDEPENDENCIES
+OPTIONS
+    name: Multilib
+    description: Enable multilib support
+    active: false
+    dependencies:
+    kernelDependencies:
+
+    name: 32Bits
+    description: Enable 32 bits support
+    active: false
+    dependencies:
+    kernelDependencies:
+        CONFIG_IA32_EMULATION
+
+    name: x32Bits
+    description: Enable x32 bits support
+    active: false
+    dependencies:
+    kernelDependencies:
+        CONFIG_X86_X32
+
+    name: Pass1
+    description: Enable the phase 1 of the cross toolchain building
+    active: false
+    dependencies:
+        @ProgrammingTools-Main:Binutils>=2.41.0(Pass1)
+    kernelDependencies:
+
+    name: Pass2
+    description: Enable the phase 2 of the cross toolchain building
+    active: false
+    dependencies:
+        @Components-Main:C-Library>=0.2.0(Pass1)
+    kernelDependencies:
+
+    name: Pass3
+    description: Enable the phase 3 of the cross toolchain building
+    active: false
+    dependencies:
+        @ProgrammingTools-Main:Binutils>=2.41.0(Pass2)
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

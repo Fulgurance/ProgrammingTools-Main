@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Cargo-C
+VERSION
+    0.10.7
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Build and install C-compatible libraries 
+WEBSITE
+    https://github.com/lu-zero/cargo-c
+DEPENDENCIES
+        @ProgrammingLanguages-Main:Rust>=1.71.1
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

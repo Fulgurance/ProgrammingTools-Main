@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Musl-Fts
+VERSION
+    1.2.7
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Implementation of fts for musl libc packages
+WEBSITE
+    https://github.com/void-linux/musl-fts
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

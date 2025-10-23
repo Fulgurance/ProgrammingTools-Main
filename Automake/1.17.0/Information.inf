@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Automake
+VERSION
+    1.17.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Tool for automatically generating Makefile.in files compliant with the GNU Coding Standards
+WEBSITE
+    https://www.gnu.org/software/automake/
+DEPENDENCIES
+        @ProgrammingTools-Main:Autoconf>=2.71.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

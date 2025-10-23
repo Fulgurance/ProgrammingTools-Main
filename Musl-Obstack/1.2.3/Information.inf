@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Musl-Obstack
+VERSION
+    1.2.3
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    A standalone library to implement GNU libc's obstack
+WEBSITE
+    https://github.com/void-linux/musl-obstack
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Check
+VERSION
+    0.15.2
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Unit testing framework for C
+WEBSITE
+    https://libcheck.github.io/check
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES
