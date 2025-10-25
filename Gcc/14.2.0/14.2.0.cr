@@ -83,7 +83,7 @@ class Target < ISM::Software
         glibcVersion = "#{softwareMajorVersion(glibcSoftwareName)}.#{softwareMinorVersion(glibcSoftwareName)}"
 
         if option("Pass1")
-            configureSource(arguments:  "--target=#{Ism.settings.chrootTarget}                                                                  \
+            configureSource(arguments:  "--target=#{Ism.settings.chrootSystemTarget}                                                                  \
                                         --prefix=#{Ism.settings.toolsPath}                                                                      \
                                         --with-glibc-version=#{glibcVersion}                                                                    \
                                         --with-sysroot=#{Ism.settings.rootPath}                                                                 \
@@ -104,20 +104,20 @@ class Target < ISM::Software
                                         --enable-languages=c,c++",
                             path:       buildDirectoryPath)
         elsif option("Pass2")
-            configureSource(arguments:          "--host=#{Ism.settings.chrootTarget}                                \
+            configureSource(arguments:          "--host=#{Ism.settings.chrootSystemTarget}                                \
                                                 --build=$(../config.guess)                                          \
                                                 --prefix=#{Ism.settings.rootPath}/usr                               \
                                                 #{option("Multilib") ? "--enable-multilib" : "--disable-multilib"}  \
                                                 --disable-nls                                                       \
                                                 --disable-libstdcxx-pch                                             \
-                                                --with-gxx-include-dir=#{Ism.settings.toolsPath}#{Ism.settings.chrootTarget}/include/c++/#{version}",
+                                                --with-gxx-include-dir=#{Ism.settings.toolsPath}#{Ism.settings.chrootSystemTarget}/include/c++/#{version}",
                             path:               buildDirectoryPath,
                             configureDirectory: "libstdc++-v3")
         elsif option("Pass3")
             configureSource(arguments:  "--build=$(../config.guess)                                                                             \
-                                        --host=#{Ism.settings.chrootTarget}                                                                     \
-                                        --target=#{Ism.settings.chrootTarget}                                                                   \
-                                        LDFLAGS_FOR_TARGET=-L#{buildDirectoryPath}/#{Ism.settings.chrootTarget}/libgcc                          \
+                                        --host=#{Ism.settings.chrootSystemTarget}                                                                     \
+                                        --target=#{Ism.settings.chrootSystemTarget}                                                                   \
+                                        LDFLAGS_FOR_TARGET=-L#{buildDirectoryPath}/#{Ism.settings.chrootSystemTarget}/libgcc                          \
                                         --prefix=/usr                                                                                           \
                                         --with-build-sysroot=#{Ism.settings.rootPath}                                                           \
                                         --enable-default-pie                                                                                    \
@@ -160,13 +160,13 @@ class Target < ISM::Software
             makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath} install",
                         path:       buildDirectoryPath)
 
-            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootSystemTarget}/#{@information.version}/include/limits.h",
                                     fromPath:   mainWorkDirectoryPath + "/gcc/limitx.h")
 
-            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootSystemTarget}/#{@information.version}/include/limits.h",
                                     fromPath:   mainWorkDirectoryPath + "/gcc/glimits.h")
 
-            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootTarget}/#{@information.version}/include/limits.h",
+            fileAppendDataFromFile( path:       "#{builtSoftwareDirectoryPath}#{Ism.settings.toolsPath}lib/gcc/#{Ism.settings.chrootSystemTarget}/#{@information.version}/include/limits.h",
                                     fromPath:   mainWorkDirectoryPath + "/gcc/limity.h")
         elsif option("Pass2")
             makeSource( arguments:  "DESTDIR=#{builtSoftwareDirectoryPath} install",

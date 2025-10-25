@@ -22,7 +22,7 @@ class Target < ISM::Software
         if option("Pass1")
             configureSource(arguments:  "--prefix=#{Ism.settings.toolsPath}     \
                                         --with-sysroot=#{Ism.settings.rootPath} \
-                                        --target=#{Ism.settings.chrootTarget}   \
+                                        --target=#{Ism.settings.chrootSystemTarget}   \
                                         --disable-nls                           \
                                         --enable-gprofng=no                     \
                                         --disable-werror                        \
@@ -33,7 +33,7 @@ class Target < ISM::Software
         elsif option("Pass2")
             configureSource(arguments:  "--prefix=/usr                                                  \
                                         --build=$(../config.guess)                                      \
-                                        --host=#{Ism.settings.chrootTarget}                             \
+                                        --host=#{Ism.settings.chrootSystemTarget}                             \
                                         --disable-nls                                                   \
                                         --enable-shared                                                 \
                                         --enable-gprofng=no                                             \
