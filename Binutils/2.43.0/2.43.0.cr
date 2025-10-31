@@ -15,7 +15,7 @@ class Target < ISM::Software
     def configure
         super
 
-        usingGlibc = component("C-Library").uniqueDependencyIsEnabled("Glibc")
+        usingGlibc = component("C-Library").uniqueDependencyIsEnabled("@ProgrammingTools-Main:Glibc")
 
         gprofng = (usingGlibc ? "yes" : "no")
 
