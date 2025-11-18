@@ -1,17 +1,17 @@
 PORT
     ProgrammingTools-Main
 NAME
-    Extra-Cmake-Modules
+    Nasm
 VERSION
-    5.109.0
+    3.1.0
 ARCHITECTURES
     x86_64
 DESCRIPTION
-    Extra modules and scripts for CMake
+    Netwide Assembler for the x86 CPU architecture portable to nearly every modern platform
 WEBSITE
-    https://invent.kde.org/frameworks/extra-cmake-modules
+    https://nasm.us/
 DEPENDENCIES
-        @ProgrammingTools-Main:Cmake>=3.27.2
+        @SystemBase-Main:SystemBase>=0.2.0
 KERNELDEPENDENCIES
 OPTIONS
 UNIQUEDEPENDENCIES

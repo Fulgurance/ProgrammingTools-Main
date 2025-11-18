@@ -1,0 +1,47 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Nodejs
+VERSION
+    24.11.1
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    GNU Diffutils programs to finding differences between files
+WEBSITE
+    https://nodejs.org
+DEPENDENCIES
+        @Utilities-Main:Which>=2.21.0
+KERNELDEPENDENCIES
+OPTIONS
+    name: C-Ares
+    description: Enable C-Ares support
+    active: false
+    dependencies:
+        @NetworkingLibraries-Main:C-Ares>=1.19.1
+    kernelDependencies:
+
+    name: Icu
+    description: Enable icu support
+    active: false
+    dependencies:
+        @BaseLibraries-Main:Icu>=73.2.0
+    kernelDependencies:
+
+    name: Libuv
+    description: Enable libuv support
+    active: false
+    dependencies:
+        @BaseLibraries-Main:Libuv>=1.46.0
+    kernelDependencies:
+
+    name: Nghttp2
+    description: Enable nghttp2 support
+    active: false
+    dependencies:
+        @NetworkingLibraries-Main:Nghttp2>=1.55.1
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

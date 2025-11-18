@@ -1,17 +1,17 @@
 PORT
     ProgrammingTools-Main
 NAME
-    Ninja
+    Extra-Cmake-Modules
 VERSION
-    1.12.1
+    6.20.0
 ARCHITECTURES
     x86_64
 DESCRIPTION
-    Small build system with a focus on speed
+    Extra modules and scripts for CMake
 WEBSITE
-    https://github.com/ninja-build/ninja
+    https://invent.kde.org/frameworks/extra-cmake-modules
 DEPENDENCIES
-        @ProgrammingLanguages-Main:Python>=3.12.0
+        @ProgrammingTools-Main:Cmake>=3.27.2
 KERNELDEPENDENCIES
 OPTIONS
 UNIQUEDEPENDENCIES

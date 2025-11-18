@@ -1,0 +1,19 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Rust-Bindgen
+VERSION
+    0.72.1
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Automatically generates Rust FFI bindings to C (and some C++) libraries
+WEBSITE
+    https://github.com/rust-lang/rust-bindgen
+DEPENDENCIES
+        @ProgrammingLanguages-Main:Rust>=1.71.1
+KERNELDEPENDENCIES
+OPTIONS
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

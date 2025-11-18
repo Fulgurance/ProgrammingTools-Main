@@ -1,0 +1,25 @@
+{
+  "defaultConfiguration":
+  {
+      "fileUser":       "root",
+      "fileGroup":      "root",
+      "fileMode":       "0644",
+      "directoryUser":  "root",
+      "directoryGroup": "root",
+      "directoryMode":  "0755"
+  },
+  "descriptors": [
+    {
+      "target": "/usr/share/bash-completion/completions/ninja",
+      "user":   "root",
+      "group":  "root",
+      "mode":   "0644"
+    },
+    {
+      "target": "/usr/share/zsh/site-functions/_ninja",
+      "user":   "root",
+      "group":  "root",
+      "mode":   "0644"
+    }
+  ]
+}

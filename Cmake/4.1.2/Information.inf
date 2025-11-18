@@ -1,0 +1,36 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Cmake
+VERSION
+    4.1.2
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Open-source cross-platform family of tools designed to build and test package software
+WEBSITE
+    https://cmake.org/
+DEPENDENCIES
+        @BaseLibraries-Main:Libuv>=1.46.0
+        @BaseLibraries-Main:Libarchive>=3.7.1
+        @NetworkingLibraries-Main:Nghttp2>=1.55.1
+        @NetworkingLibraries-Main:Curl>=8.2.1
+KERNELDEPENDENCIES
+OPTIONS
+    name: Gcc
+    description: Enable gcc support
+    active: false
+    dependencies:
+        @ProgrammingTools-Main:Gcc>=13.2.0
+    kernelDependencies:
+
+    name: Qtbase
+    description: Enable qtbase support
+    active: false
+    dependencies:
+        @QtLibraries-Main:Qtbase>=5.0.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

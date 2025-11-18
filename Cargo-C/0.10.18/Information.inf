@@ -1,17 +1,17 @@
 PORT
     ProgrammingTools-Main
 NAME
-    Ninja
+    Cargo-C
 VERSION
-    1.12.1
+    0.10.18
 ARCHITECTURES
     x86_64
 DESCRIPTION
-    Small build system with a focus on speed
+    Build and install C-compatible libraries 
 WEBSITE
-    https://github.com/ninja-build/ninja
+    https://github.com/lu-zero/cargo-c
 DEPENDENCIES
-        @ProgrammingLanguages-Main:Python>=3.12.0
+        @ProgrammingLanguages-Main:Rust>=1.71.1
 KERNELDEPENDENCIES
 OPTIONS
 UNIQUEDEPENDENCIES

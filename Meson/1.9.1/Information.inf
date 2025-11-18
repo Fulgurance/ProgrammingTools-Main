@@ -1,0 +1,34 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Meson
+VERSION
+    1.9.1
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Open source build system meant to be both extremely fast, and, even more importantly, as user friendly as possible
+WEBSITE
+    https://pypi.org/project/meson/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0(Pass2)
+        @ProgrammingLanguages-Main:Python>=3.11.4
+KERNELDEPENDENCIES
+OPTIONS
+    name: Python-3.12
+    description: Enable python-3.12 support
+    active: false
+    dependencies:
+        @ProgrammingLanguages-Main:Python>=3.12.0 ~ <3.13.0
+    kernelDependencies:
+
+    name: Python-3.13
+    description: Enable python-3.13 support
+    active: true
+    dependencies:
+        @ProgrammingLanguages-Main:Python>=3.13.0 ~ <3.14.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

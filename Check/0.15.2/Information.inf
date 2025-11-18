@@ -9,7 +9,7 @@ ARCHITECTURES
 DESCRIPTION
     Unit testing framework for C
 WEBSITE
-    https://libcheck.github.io/check
+    https://github.com/libcheck/check
 DEPENDENCIES
         @SystemBase-Main:SystemBase>=0.2.0
 KERNELDEPENDENCIES

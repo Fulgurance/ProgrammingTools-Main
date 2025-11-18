@@ -1,0 +1,75 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Git
+VERSION
+    2.52.0
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency
+WEBSITE
+    https://git-scm.com/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+    name: Curl
+    description: Enable curl support to use Git over http, https, ftp or ftps
+    active: true
+    dependencies:
+        @NetworkingLibraries-Main:Curl>=8.2.1
+    kernelDependencies:
+
+    name: Gnupg
+    description: Enable gnupg support to sign Git commits or tags, or verify signatures
+    active: true
+    dependencies:
+        @SecuritySoftwares-Main:Gnupg>=2.4.3
+    kernelDependencies:
+
+    name: Openssh
+    description: Enable openssh support
+    active: false
+    dependencies:
+        @NetworkingSoftwares-Main:Openssh>=9.4.0+p1
+    kernelDependencies:
+
+    name: Pcre2
+    description: Enable pcre2 support
+    active: false
+    dependencies:
+        @BaseLibraries-Main:Pcre2>=10.42.0
+    kernelDependencies:
+
+    name: Subversion
+    description: Enable subversion support
+    active: false
+    dependencies:
+        @ProgrammingTools-Main:Subversion>=1.14.2
+    kernelDependencies:
+
+    name: Tk
+    description: Enable tk support
+    active: false
+    dependencies:
+        @GraphicsLibraries-Main:Tk>=8.6.13
+    kernelDependencies:
+
+    name: Valgrind
+    description: Enable valgrind support
+    active: false
+    dependencies:
+        @Utilities-Main:Valgrind>=3.21.0
+    kernelDependencies:
+
+    name: Io-Socket-Openssl
+    description: Enable io-socket-openssl support
+    active: false
+    dependencies:
+        @NetworkingLibraries-Main:Io-Socket-Openssl>=2.83.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES

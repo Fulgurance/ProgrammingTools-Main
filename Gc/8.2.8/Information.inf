@@ -1,0 +1,26 @@
+PORT
+    ProgrammingTools-Main
+NAME
+    Gc
+VERSION
+    8.2.8
+ARCHITECTURES
+    x86_64
+DESCRIPTION
+    Conservative garbage collector can be used as a garbage collecting replacement for C malloc or C++ new
+WEBSITE
+    https://www.hboehm.info/gc/
+DEPENDENCIES
+        @SystemBase-Main:SystemBase>=0.2.0
+KERNELDEPENDENCIES
+OPTIONS
+    name: LibatomicOps
+    description: Enable LibatomicOps support
+    active: false
+    dependencies:
+        @BaseLibraries-Main:LibatomicOps>=7.8.0
+    kernelDependencies:
+
+UNIQUEDEPENDENCIES
+UNIQUEOPTIONS
+ALLOWCODEPENDENCIES
