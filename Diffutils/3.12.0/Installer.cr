@@ -4,8 +4,9 @@ class Target < ISM::Software
         super
 
         if option("Pass1")
-            configureSource(arguments:  "--prefix=/usr                      \
-                                        --host=#{Ism.settings.chrootSystemTarget} \
+            configureSource(arguments:  "--prefix=/usr                              \
+                                        gl_cv_func_strcasecmp_works=y               \
+                                        --host=#{Ism.settings.chrootSystemTarget}   \
                                         --build=$(./build-aux/config.guess)",
                             path:       buildDirectoryPath)
         else
