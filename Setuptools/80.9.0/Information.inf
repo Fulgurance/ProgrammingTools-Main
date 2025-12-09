@@ -28,13 +28,6 @@ OPTIONS
         @ProgrammingLanguages-Main:Python>=3.13.0 ~ <3.14.0
     kernelDependencies:
 
-    name: Python-3.14
-    description: Enable python-3.14 support
-    active: true
-    dependencies:
-        @ProgrammingLanguages-Main:Python>=3.14.0 ~ <3.15.0
-    kernelDependencies:
-
 UNIQUEDEPENDENCIES
 UNIQUEOPTIONS
 ALLOWCODEPENDENCIES
